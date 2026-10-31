@@ -80,3 +80,4 @@ Components read data only through `src/lib/data.ts`. When the custom CMS (Next.j
 - Grid: 4 columns on mobile, 8 on tablet and 12 on desktop (`grid-atelier` utility).
 - Each homepage section opens with a numbered mono label and a hairline (`SectionHeader`). This shared running index is what gives the site its magazine rhythm.
 - Motion: 300–600 ms using the `ease-atelier` easing, entrance and hover only. Nothing loops.
+"# Ros-Atelier" 
