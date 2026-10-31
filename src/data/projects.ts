@@ -25,7 +25,7 @@ export const projects: Project[] = [
     featured: true,
     order: 1,
     cover: { motif: "journal", tone: "blush" },
-    links: { caseStudy: true },
+    links: { caseStudy: true, live: "https://pinnacle-academic.com/login" },
     caseStudy: {
       overview:
         "Pinnacle Academic Publishing needed a single platform to run its journals: receiving manuscripts, coordinating peer review, publishing accepted work and keeping the system healthy in production. I was responsible for the platform end to end, frontend and backend.",
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     featured: true,
     order: 2,
     cover: { motif: "dashboard", tone: "plum" },
-    links: {},
+    links: { live: "https://hixa.com.sa/" },
   },
   {
     slug: "ayadi-al-khair",
@@ -151,7 +151,7 @@ export const projects: Project[] = [
     featured: true,
     order: 3,
     cover: { motif: "clinic", tone: "ivory" },
-    links: {},
+    links: { live: "https://ayadi-alkhair.org/requests" },
   },
   {
     slug: "nuzzul",

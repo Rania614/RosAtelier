@@ -82,7 +82,7 @@ export function ProjectCard({ project, index, aspect = "wide", headingLevel = "h
                 rel="noreferrer"
                 className="link-underline relative z-10 text-ink/70 hover:text-ink"
               >
-                Live demo
+                Live site
               </a>
             ) : null}
             {project.links.github ? (

@@ -23,10 +23,7 @@ export const siteConfig = {
   // TODO: replace with your real contact address before publishing.
   email: "hello@example.com",
 
-  /**
-   * TODO: replace /public/resume.pdf with your real résumé (keep the same file name,
-   * or update this path). The file currently shipped is a clearly-labelled placeholder.
-   */
+  /** Résumé PDF served from /public. Replace the file (same name) to update it. */
   resumeUrl: "/resume.pdf",
 
   /**
@@ -41,8 +38,7 @@ export const siteConfig = {
   ],
 
   seo: {
-    // TODO: set to the production domain once deployed.
-    siteUrl: "https://rose-atelier.example.com",
+    siteUrl: "https://rosatelier.vercel.app",
     defaultTitle: "Rania Abdelnasser — Software Engineer",
     titleTemplate: "%s — Rania Abdelnasser",
     description:

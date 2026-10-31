@@ -83,7 +83,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               </p>
             </Reveal>
             <Reveal delay={0.1} className="col-span-full flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
-              {project.links.live ? <ButtonLink href={project.links.live}>Live demo</ButtonLink> : null}
+              {project.links.live ? <ButtonLink href={project.links.live}>Visit live site</ButtonLink> : null}
               {project.links.github ? (
                 <ButtonLink href={project.links.github} variant="outline" icon={<TechIcon name="github" className="size-4" />}>
                   View source
