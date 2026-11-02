@@ -3,7 +3,7 @@
  * Designed so the same shape can later come from PostgreSQL/Prisma via the CMS.
  */
 
-export type ProjectCategory = "Full-Stack" | "Frontend" | "Mobile" | "Training";
+export type ProjectCategory = "Full-Stack" | "Frontend" | "UI/UX Design" | "Mobile" | "Training";
 
 /** Selects the illustrated placeholder cover until real screenshots exist. */
 export type CoverMotif = "journal" | "dashboard" | "clinic" | "mobile" | "property" | "code";
@@ -58,6 +58,8 @@ export interface Project {
     built: string[];
     results?: string[];
   };
+  /** Where the screenshots come from: the live public site (default) or design files (e.g. Figma). */
+  screensSource?: "live" | "design";
   /** Real screenshots of public pages, shown on the project page. Never authenticated/private screens. */
   screenshots?: ProjectImage[];
   links: ProjectLinks;

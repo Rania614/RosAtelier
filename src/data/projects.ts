@@ -53,6 +53,62 @@ const shots = {
     caption: "Ordering flow — step 1 of 5",
     source: "https://yozersief.vercel.app/order",
   },
+  hrmsLeaveManagement: {
+    src: "/images/projects/hr-management-system/leave-management.jpg",
+    alt: "HR Management System design in Arabic: the HR manager's leave management table with status chips and summary cards",
+    width: 1440,
+    height: 1024,
+    caption: "HR manager · Leave management",
+  },
+  hrmsTeamRequests: {
+    src: "/images/projects/hr-management-system/team-requests.jpg",
+    alt: "Direct manager's team leave requests with approve and reject actions",
+    width: 1440,
+    height: 1024,
+    caption: "Direct manager · Team leave requests",
+  },
+  hrmsRequestApproved: {
+    src: "/images/projects/hr-management-system/request-approved.jpg",
+    alt: "Leave request detail after approval: request details, balance after approval and the request timeline",
+    width: 1440,
+    height: 1024,
+    caption: "Direct manager · Request approved",
+  },
+  hrmsNewRequest: {
+    src: "/images/projects/hr-management-system/new-request.jpg",
+    alt: "Employee's new leave request form with live balance and what happens after submitting",
+    width: 1440,
+    height: 1116,
+    caption: "Employee · New leave request",
+  },
+  hrmsMyLeaves: {
+    src: "/images/projects/hr-management-system/my-leaves.jpg",
+    alt: "Employee's leave dashboard with balances by leave type and request history",
+    width: 1440,
+    height: 1024,
+    caption: "Employee · My leaves",
+  },
+  hrmsLogin: {
+    src: "/images/projects/hr-management-system/login.jpg",
+    alt: "Arabic RTL sign-in screen with demo role shortcuts for the prototype",
+    width: 1440,
+    height: 1024,
+    caption: "Authentication · Sign in",
+  },
+  hrmsPrototypeGuide: {
+    src: "/images/projects/hr-management-system/prototype-guide.jpg",
+    alt: "Interactive prototype guide: enter as one of four roles and start any of seven flows",
+    width: 1440,
+    height: 1100,
+    caption: "Prototype guide · 4 roles, 7 flows",
+  },
+  hrmsAdminScreens: {
+    src: "/images/projects/hr-management-system/admin-screens.jpg",
+    alt: "Four admin screens side by side: add user, user management, roles and permissions matrix, and system settings",
+    width: 3200,
+    height: 790,
+    caption: "Admin · Users, roles & permissions, settings",
+  },
 } satisfies Record<string, ProjectImage>;
 
 /**
@@ -168,6 +224,48 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "hr-management-system",
+    name: "HR Management System",
+    tagline: "An enterprise HR platform designed in Figma — four roles, one Arabic-first interface.",
+    description:
+      "An enterprise Human Resource Management System that centralises employee records and streamlines everyday HR work in one web platform. I designed the interface and experience end to end: 11 core screens, user flows for four roles, a reusable component system and interactive prototypes.",
+    category: "UI/UX Design",
+    context: "Freelance · Enterprise SaaS",
+    role: "UI/UX Designer (Freelance)",
+    period: "31 Oct 2026 · 10 days",
+    technologies: ["Figma", "Auto Layout", "Components", "Variables", "Prototyping"],
+    highlights: ["11 core screens", "4 user roles", "Arabic RTL · bilingual"],
+    story: {
+      challenge:
+        "Design one HR platform for four very different users — Admin, HR Manager, Direct Manager and Employee — that stays consistent and easy to use in an Arabic-first, right-to-left interface.",
+      built: [
+        "11 core screens across employee, department, admin and leave management, attendance, authentication and role-based dashboards.",
+        "User flows for four roles, including the full leave journey: the employee requests, the direct manager approves or rejects, and the employee sees the result.",
+        "Authentication and role-based navigation: sign in, validation and error states, password recovery and reset.",
+        "A reusable component system with consistent spacing, typography and visual hierarchy, built with Auto Layout and Variables.",
+        "Arabic RTL interfaces with bilingual support.",
+      ],
+      results: [
+        "An interactive Figma prototype: enter as any of the four roles and walk through seven flows — authentication, employees, attendance, leave, payroll, performance and reports.",
+      ],
+    },
+    featured: true,
+    order: 5,
+    cover: { motif: "dashboard", tone: "blush", image: shots.hrmsLeaveManagement },
+    screensSource: "design",
+    screenshots: [
+      shots.hrmsLeaveManagement,
+      shots.hrmsAdminScreens,
+      shots.hrmsTeamRequests,
+      shots.hrmsRequestApproved,
+      shots.hrmsNewRequest,
+      shots.hrmsMyLeaves,
+      shots.hrmsLogin,
+      shots.hrmsPrototypeGuide,
+    ],
+    links: {},
+  },
+  {
     slug: "hixa",
     name: "HIXA",
     tagline: "An engineering management system with role-specific dashboards.",
@@ -269,7 +367,7 @@ export const projects: Project[] = [
     role: "Mobile & Frontend Developer",
     technologies: ["React Native", "Expo", "Supabase", "Next.js"],
     featured: false,
-    order: 5,
+    order: 6,
     highlights: ["Mobile app + admin + landing", "Training project"],
     story: {
       challenge:
@@ -296,7 +394,7 @@ export const projects: Project[] = [
     period: "Jan 2026 — Apr 2026",
     technologies: ["React", "REST APIs"],
     featured: false,
-    order: 6,
+    order: 7,
     highlights: ["200+ contracts managed", "Saudi client"],
     story: {
       challenge: "A real estate office needed a clear dashboard to manage its properties and contracts.",
@@ -321,7 +419,7 @@ export const projects: Project[] = [
     period: "Jun 2026 — Jul 2026",
     technologies: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "dnd-kit"],
     featured: false,
-    order: 7,
+    order: 8,
     highlights: ["Drag-and-drop board", "Code-reviewed PRs"],
     story: {
       challenge:

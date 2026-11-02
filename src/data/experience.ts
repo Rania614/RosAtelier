@@ -14,6 +14,7 @@ export const experience: ExperienceItem[] = [
     summary:
       "Designing an enterprise HR platform in Figma: 11 core screens, user flows for four roles (Admin, HR Manager, Direct Manager, Employee), authentication and role-based navigation, reusable components, and Arabic RTL interfaces with bilingual support — with interactive prototypes of the key workflows.",
     technologies: ["Figma", "Auto Layout", "Components", "Variables", "Prototyping"],
+    projectSlug: "hr-management-system",
   },
   {
     id: "build-and-brand",

@@ -95,7 +95,10 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
           <ProjectCover project={project} priority variant="hero" className="rounded-[26px] border border-ink/10" />
           {project.cover.image ? (
             <p className="label-mono mt-4 text-ink/70">
-              {project.cover.image.caption} · captured from the live site — signed-in dashboards are not shown
+              {project.cover.image.caption} ·{" "}
+              {project.screensSource === "design"
+                ? "designed in Figma — all names and data are fictional"
+                : "captured from the live site — signed-in dashboards are not shown"}
             </p>
           ) : null}
         </Reveal>
@@ -206,10 +209,12 @@ function Screens({ project }: { project: Project }) {
       <section aria-labelledby="screens-title" className="grid-atelier gap-y-6">
         <div className="col-span-full lg:col-span-4">
           <h2 id="screens-title" className="label-mono border-t border-ink/12 pt-4 text-plum">
-            Live screens
+            {project.screensSource === "design" ? "Design screens" : "Live screens"}
           </h2>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/70">
-            Captured from the public, live site. Signed-in dashboards and client data are not shown.
+            {project.screensSource === "design"
+              ? "From the Figma design and prototype. All names and data are fictional demo content."
+              : "Captured from the public, live site. Signed-in dashboards and client data are not shown."}
           </p>
         </div>
         <div className="col-span-full grid gap-8 lg:col-span-8 md:grid-cols-2">
