@@ -20,11 +20,11 @@ export async function Journey() {
           intro="Client engagements, education and training — the path that shaped how I build."
         />
         <div className="mt-14 md:mt-20 lg:pl-[8.333%]">
-          <Timeline items={items} />
+          <Timeline items={items.slice(0, 5)} />
         </div>
         <div className="mt-14 md:mt-16 lg:pl-[8.333%]">
           <ButtonLink href="/experience" variant="outline">
-            Full experience
+            Full experience & education
           </ButtonLink>
         </div>
       </div>

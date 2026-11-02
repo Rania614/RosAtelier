@@ -19,7 +19,7 @@ export function Hero() {
         aria-hidden
         className="label-mono absolute left-5 top-1/2 hidden -translate-y-1/2 -rotate-90 origin-left text-plum/80 xl:block"
       >
-        {siteConfig.brand} — Portfolio
+        {siteConfig.name} — Portfolio
       </p>
 
       <div className="container-atelier relative">

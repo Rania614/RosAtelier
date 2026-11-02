@@ -6,7 +6,6 @@
  */
 
 export const siteConfig = {
-  brand: "Rosé Atelier",
   wordmark: "Rania",
   name: "Rania Abdelnasser",
   title: "Software Engineer",

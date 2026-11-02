@@ -112,7 +112,7 @@ function PortraitPlaceholder() {
 }
 
 function RoundBadge() {
-  const text = "ROSÉ ATELIER · SOFTWARE ENGINEERING · ";
+  const text = "RANIA ABDELNASSER · SOFTWARE ENGINEER · ";
   return (
     <span className="relative flex size-[6.5rem] items-center justify-center rounded-full bg-background shadow-[0_14px_30px_-20px_rgba(52,43,51,.6)] md:size-28">
       <svg aria-hidden viewBox="0 0 120 120" className="absolute inset-0 h-full w-full text-plum">
@@ -126,7 +126,7 @@ function RoundBadge() {
       <svg aria-hidden viewBox="0 0 24 24" className="size-6 text-plum" fill="currentColor">
         <path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0Z" />
       </svg>
-      <span className="sr-only">{siteConfig.brand}</span>
+      <span className="sr-only">{siteConfig.name}</span>
     </span>
   );
 }

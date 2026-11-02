@@ -59,7 +59,7 @@ export function SiteFooter() {
         </div>
         <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-6 text-background/75 md:flex-row md:items-center md:justify-between">
           <p className="label-mono">
-            © <CurrentYear /> {siteConfig.name} · {siteConfig.brand}
+            © <CurrentYear /> {siteConfig.name}
           </p>
           <p className="label-mono">Designed &amp; engineered with care · {siteConfig.location}</p>
         </div>

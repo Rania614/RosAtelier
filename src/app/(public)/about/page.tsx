@@ -19,7 +19,7 @@ export default async function AboutPage() {
   return (
     <>
       <PageIntro
-        eyebrow="About"
+        eyebrow="About Rania"
         title={
           <>
             An imaginative mind. <span className="text-plum">An engineering mindset.</span>

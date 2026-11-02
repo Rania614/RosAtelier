@@ -6,6 +6,16 @@ import type { ExperienceItem } from "@/types/experience";
  */
 export const experience: ExperienceItem[] = [
   {
+    id: "hrms",
+    kind: "Freelance",
+    title: "UI/UX Designer (Freelance)",
+    organization: "HR Management System (HRMS) · Enterprise SaaS",
+    period: { label: "31 Oct 2026 · 10 days" },
+    summary:
+      "Designing an enterprise HR platform in Figma: 11 core screens, user flows for four roles (Admin, HR Manager, Direct Manager, Employee), authentication and role-based navigation, reusable components, and Arabic RTL interfaces with bilingual support — with interactive prototypes of the key workflows.",
+    technologies: ["Figma", "Auto Layout", "Components", "Variables", "Prototyping"],
+  },
+  {
     id: "build-and-brand",
     kind: "Competition",
     title: "Frontend Developer — 1st place, User Persona competition",
@@ -16,43 +26,79 @@ export const experience: ExperienceItem[] = [
     projectSlug: "yozersief",
   },
   {
-    id: "freelance",
-    kind: "Freelance",
-    title: "Freelance Software Development",
-    organization: "Independent",
-    period: { label: "Jun 2025 — Sep 2026" },
-    summary:
-      "Independent client engagements across web and mobile — from frontend builds and API integration to end-to-end full-stack platforms.",
-    technologies: ["React", "TypeScript", "Node.js", "Prisma", "PostgreSQL", "React Native"],
-  },
-  {
     id: "pinnacle",
-    kind: "Engagement",
+    kind: "Freelance",
     title: "Full-Stack Developer (Freelance)",
     organization: "Pinnacle Academic Publishing",
     period: { label: "Mar 2026 — Sep 2026" },
     summary:
-      "Built and maintained an academic publishing and peer-review platform end to end: manuscript workflows, role-based access, DOI and payment integration, and production maintenance.",
+      "Built an academic publishing platform end to end — React frontend, Node.js/Express API, Prisma and PostgreSQL — with role-based manuscript workflows, DOI and payment integration. Deployed it to production, then ran a production audit and fixed 20+ production bugs.",
     projectSlug: "pinnacle-academic-publishing",
   },
   {
+    id: "ayadi",
+    kind: "Freelance",
+    title: "Full-Stack Developer (Freelance)",
+    organization: "Ayadi Al-Khair Charity Association",
+    period: { label: "May 2026 — Jul 2026" },
+    summary:
+      "Built a patient management system end to end with React, TypeScript, Express.js, Prisma and PostgreSQL, with role-based access for Administrators, Doctors, Medical Reviewers and Employees.",
+    projectSlug: "ayadi-al-khair",
+  },
+  {
+    id: "rafiq",
+    kind: "Internship",
+    title: "Frontend Developer Trainee",
+    organization: "Rafiq",
+    period: { label: "Jun 2026 — Jul 2026" },
+    summary:
+      "Implemented a management dashboard from Figma designs with Next.js and TypeScript. Worked in feature branches with pull requests and code review, reviewed teammates' work and gave weekly technical presentations in an Agile team.",
+    projectSlug: "rafiq-frontend",
+  },
+  {
+    id: "linkedtrust",
+    kind: "Internship",
+    title: "Frontend Developer Intern",
+    organization: "LinkedTrust",
+    period: { label: "Feb 2026 — Jun 2026" },
+    summary:
+      "Built React and TypeScript UI components following Atomic Design for an enterprise design system, in a shared production codebase with feature branches and pull-request review.",
+  },
+  {
     id: "property",
-    kind: "Engagement",
+    kind: "Freelance",
     title: "Frontend Developer (Freelance)",
-    organization: "Property Management System · Saudi client",
+    organization: "Real estate office · Saudi Arabia",
     period: { label: "Jan 2026 — Apr 2026" },
-    summary: "Designed and built the frontend of a property management system and integrated it with the backend.",
+    summary:
+      "Designed and built the React frontend of a property management dashboard managing 200+ contracts, and integrated it with the backend built by another developer.",
     projectSlug: "property-management-system",
   },
   {
+    id: "afaq-ware",
+    kind: "Internship",
+    title: "Frontend Developer Intern",
+    organization: "Afaq Ware",
+    period: { label: "Feb 2026 — Apr 2026" },
+    summary: "Built reusable React components from Figma designs and documented their component APIs.",
+  },
+  {
     id: "hixa",
-    kind: "Engagement",
+    kind: "Freelance",
     title: "Frontend Developer (Freelance)",
-    organization: "HIXA · Saudi client",
+    organization: "HIXA Engineering Services Platform · Saudi Arabia",
     period: { label: "Sep 2025 — Dec 2025" },
     summary:
-      "Designed and built four role-specific dashboards and a landing page for an engineering management platform, plus frontend–backend integration.",
+      "Designed and built the frontend: four role-specific dashboards (Admin, Engineer, Client, Company) and the landing page, plus frontend–backend integration.",
     projectSlug: "hixa",
+  },
+  {
+    id: "mostaql",
+    kind: "Freelance",
+    title: "React Native Developer (Freelance)",
+    organization: "Furniture e-commerce app · Mostaql client",
+    period: { label: "Jun 2025" },
+    summary: "Rebuilt the app's mobile screens from Figma designs in React Native, focused on UI implementation.",
   },
   {
     id: "iti",

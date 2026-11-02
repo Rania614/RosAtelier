@@ -21,6 +21,15 @@ export const techStack: TechGroup[] = [
     ],
   },
   { category: "Styling", items: [{ name: "Tailwind CSS", icon: "tailwind" }, { name: "CSS", icon: "css" }] },
+  { category: "Design", items: [{ name: "Figma", icon: "figma" }] },
+  {
+    category: "AI-assisted",
+    items: [
+      { name: "Claude", icon: "claude" },
+      { name: "Cursor", icon: "cursor" },
+      { name: "GitHub Copilot", icon: "copilot" },
+    ],
+  },
   {
     category: "Tools",
     items: [

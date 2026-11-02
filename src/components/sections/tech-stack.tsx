@@ -24,7 +24,7 @@ export async function TechStack() {
               </h2>
               <p className="mt-5 max-w-sm text-base leading-relaxed text-ink/70">
                 The technologies I reach for day to day — chosen for reliability, clarity and how well they serve the
-                product.
+                product. I use AI tools to move faster, and review every line they suggest before it ships.
               </p>
             </div>
           </div>

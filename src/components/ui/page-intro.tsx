@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./reveal";
+import { siteConfig } from "@/config/site";
 
 /** Opening masthead for inner pages. */
 export function PageIntro({ eyebrow, title, intro, children }: { eyebrow: string; title: ReactNode; intro?: ReactNode; children?: ReactNode }) {
@@ -10,7 +11,7 @@ export function PageIntro({ eyebrow, title, intro, children }: { eyebrow: string
         <Reveal y={10} className="flex items-center gap-4 text-plum">
           <span className="label-mono text-plum">{eyebrow}</span>
           <span aria-hidden className="h-px w-10 bg-mauve/50" />
-          <span className="label-mono">Rosé Atelier</span>
+          <span className="label-mono">{siteConfig.name}</span>
         </Reveal>
         <div className="grid-atelier mt-6 items-end gap-y-8">
           <Reveal className="col-span-full lg:col-span-8">

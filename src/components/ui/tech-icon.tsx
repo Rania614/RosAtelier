@@ -1,7 +1,7 @@
 import {
   siReact, siNextdotjs, siTypescript, siJavascript, siExpo, siNodedotjs, siExpress,
   siPostgresql, siPrisma, siMongodb, siTailwindcss, siCss, siGit, siGithub, siPostman, siVercel,
-  siRedux, siSupabase,
+  siRedux, siSupabase, siFigma, siClaude, siCursor, siGithubcopilot,
 } from "simple-icons";
 import { cn } from "@/lib/utils";
 
@@ -9,7 +9,7 @@ const icons = {
   react: siReact, nextjs: siNextdotjs, typescript: siTypescript, javascript: siJavascript, expo: siExpo,
   nodejs: siNodedotjs, express: siExpress, postgresql: siPostgresql, prisma: siPrisma, mongodb: siMongodb,
   tailwind: siTailwindcss, css: siCss, git: siGit, github: siGithub, postman: siPostman, vercel: siVercel,
-  redux: siRedux, supabase: siSupabase,
+  redux: siRedux, supabase: siSupabase, figma: siFigma, claude: siClaude, cursor: siCursor, copilot: siGithubcopilot,
 } as const;
 
 export type TechIconKey = keyof typeof icons;
