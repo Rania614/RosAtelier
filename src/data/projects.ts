@@ -134,7 +134,7 @@ export const projects: Project[] = [
     period: "Mar 2026 — Sep 2026",
     technologies: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
     featured: true,
-    order: 1,
+    order: 3,
     highlights: ["Built end to end", "20+ production bugs fixed", "4 user roles"],
     story: {
       challenge:
@@ -250,7 +250,7 @@ export const projects: Project[] = [
       ],
     },
     featured: true,
-    order: 5,
+    order: 2,
     cover: { motif: "dashboard", tone: "blush", image: shots.hrmsLeaveManagement },
     screensSource: "design",
     screenshots: [
@@ -277,7 +277,7 @@ export const projects: Project[] = [
     period: "Sep 2025 — Dec 2025",
     technologies: ["React", "REST APIs"],
     featured: true,
-    order: 2,
+    order: 7,
     highlights: ["4 role-based dashboards", "Landing page", "Saudi client"],
     story: {
       challenge:
@@ -306,7 +306,7 @@ export const projects: Project[] = [
     period: "May 2026 — Jul 2026",
     technologies: ["React", "TypeScript", "Express.js", "Prisma", "PostgreSQL"],
     featured: true,
-    order: 3,
+    order: 4,
     highlights: ["Built end to end", "4 user roles", "Arabic RTL"],
     story: {
       challenge:
@@ -337,7 +337,7 @@ export const projects: Project[] = [
     // Project stack, from the team repo's README.
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM"],
     featured: true,
-    order: 4,
+    order: 1,
     highlights: ["1st place · IEEE", "Built in 3 days", "Team of 3"],
     story: {
       challenge:
@@ -356,32 +356,33 @@ export const projects: Project[] = [
     screenshots: [shots.yozersiefHome, shots.yozersiefOrder],
     links: { live: "https://yozersief.vercel.app/" },
   },
-  {
-    slug: "nuzzul",
-    name: "Nuzzul",
-    tagline: "A real estate platform concept — mobile app and admin dashboard.",
-    description:
-      "A real estate platform concept built as a training project: a React Native mobile application with an admin dashboard and a Next.js landing page, backed by Supabase.",
-    category: "Mobile",
-    context: "Training project",
-    role: "Mobile & Frontend Developer",
-    technologies: ["React Native", "Expo", "Supabase", "Next.js"],
-    featured: false,
-    order: 6,
-    highlights: ["Mobile app + admin + landing", "Training project"],
-    story: {
-      challenge:
-        "A concept for a real estate platform that needed three surfaces working together: a mobile app for users, an admin dashboard and a marketing landing page.",
-      built: [
-        "The mobile app with React Native and Expo.",
-        "An admin dashboard.",
-        "A Next.js landing page.",
-        "A Supabase backend.",
-      ],
-    },
-    cover: { motif: "mobile", tone: "blush" },
-    links: {},
-  },
+  // Nuzzul is hidden for now. To show it again, remove the "// " in front of each line below.
+  // {
+  //   slug: "nuzzul",
+  //   name: "Nuzzul",
+  //   tagline: "A real estate platform concept — mobile app and admin dashboard.",
+  //   description:
+  //     "A real estate platform concept built as a training project: a React Native mobile application with an admin dashboard and a Next.js landing page, backed by Supabase.",
+  //   category: "Mobile",
+  //   context: "Training project",
+  //   role: "Mobile & Frontend Developer",
+  //   technologies: ["React Native", "Expo", "Supabase", "Next.js"],
+  //   featured: false,
+  //   order: 6,
+  //   highlights: ["Mobile app + admin + landing", "Training project"],
+  //   story: {
+  //     challenge:
+  //       "A concept for a real estate platform that needed three surfaces working together: a mobile app for users, an admin dashboard and a marketing landing page.",
+  //     built: [
+  //       "The mobile app with React Native and Expo.",
+  //       "An admin dashboard.",
+  //       "A Next.js landing page.",
+  //       "A Supabase backend.",
+  //     ],
+  //   },
+  //   cover: { motif: "mobile", tone: "blush" },
+  //   links: {},
+  // },
   {
     slug: "property-management-system",
     name: "Property Management System",
@@ -394,7 +395,7 @@ export const projects: Project[] = [
     period: "Jan 2026 — Apr 2026",
     technologies: ["React", "REST APIs"],
     featured: false,
-    order: 7,
+    order: 6,
     highlights: ["200+ contracts managed", "Saudi client"],
     story: {
       challenge: "A real estate office needed a clear dashboard to manage its properties and contracts.",
@@ -419,7 +420,7 @@ export const projects: Project[] = [
     period: "Jun 2026 — Jul 2026",
     technologies: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "dnd-kit"],
     featured: false,
-    order: 8,
+    order: 5,
     highlights: ["Drag-and-drop board", "Code-reviewed PRs"],
     story: {
       challenge:

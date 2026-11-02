@@ -46,34 +46,44 @@ export function PortraitComposition() {
       </Reveal>
 
       {/* Floating technical labels */}
-      <Reveal delay={0.5} y={10} className="absolute right-0 top-[17%] sm:-right-2">
-        <span className="label-mono inline-flex items-center gap-2 rounded-full border border-ink/10 bg-surface/95 px-3 py-2 text-ink shadow-[0_12px_30px_-18px_rgba(52,43,51,.5)]">
-          <span aria-hidden className="size-1.5 rounded-[2px] bg-plum" />
-          TypeScript · strict
-        </span>
-      </Reveal>
-
-      <Reveal delay={0.6} y={10} className="absolute -left-2 top-[34%] hidden min-[400px]:block lg:-left-6">
-        <div className="rounded-[14px] border border-ink/10 bg-surface/95 px-4 py-3.5 font-mono text-[0.6875rem] leading-[1.7] text-ink/80 shadow-[0_18px_40px_-22px_rgba(52,43,51,.55)]">
-          <p>
-            <span className="text-plum">const</span> atelier = {"{"}
-          </p>
-          <p className="pl-3">
-            mind: <span className="text-plum">&quot;imaginative&quot;</span>,
-          </p>
-          <p className="pl-3">
-            method: <span className="text-plum">&quot;engineering&quot;</span>,
-          </p>
-          <p>{"};"}</p>
+      <Reveal delay={0.5} y={10} className="absolute right-0 top-[17%] z-10 sm:-right-2">
+        <div className="animate-float [animation-delay:-1.5s]">
+          <span className="label-mono hover-lift inline-flex cursor-default items-center gap-2 rounded-full border border-ink/10 bg-surface/95 px-3 py-2 text-ink shadow-[0_12px_30px_-18px_rgba(52,43,51,.5)]">
+            <span aria-hidden className="size-1.5 rounded-[2px] bg-plum" />
+            TypeScript · strict
+          </span>
         </div>
       </Reveal>
 
-      <Reveal delay={0.7} y={10} className="absolute bottom-0 left-[8%] sm:left-[4%]">
-        <RoundBadge />
+      <Reveal delay={0.6} y={10} className="absolute -left-2 top-[34%] z-10 hidden min-[400px]:block lg:-left-6">
+        <div className="animate-float [animation-delay:-3s] [animation-duration:7s]">
+          <div className="hover-lift cursor-default rounded-[14px] border border-ink/10 bg-surface/95 px-4 py-3.5 font-mono text-[0.6875rem] leading-[1.7] text-ink/80 shadow-[0_18px_40px_-22px_rgba(52,43,51,.55)]">
+            <p>
+              <span className="text-plum">const</span> rania = {"{"}
+            </p>
+            <p className="pl-3">
+              mind: <span className="text-plum">&quot;imaginative&quot;</span>,
+            </p>
+            <p className="pl-3">
+              method: <span className="text-plum">&quot;engineering&quot;</span>,
+            </p>
+            <p>{"};"}</p>
+          </div>
+        </div>
       </Reveal>
 
-      <Reveal delay={0.75} y={8} className="absolute right-[6%] top-[4%] lg:right-[10%]">
-        <span className="label-mono rounded-full bg-ink px-3 py-1.5 text-background">GET /ideas · 200</span>
+      <Reveal delay={0.7} y={10} className="absolute bottom-0 left-[8%] z-10 sm:left-[4%]">
+        <div className="hover-lift rounded-full">
+          <RoundBadge />
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.75} y={8} className="absolute right-[6%] top-[4%] z-10 lg:right-[10%]">
+        <div className="animate-float [animation-delay:-4.5s] [animation-duration:5.5s]">
+          <span className="label-mono hover-lift inline-block cursor-default rounded-full bg-ink px-3 py-1.5 text-background">
+            GET /ideas · 200
+          </span>
+        </div>
       </Reveal>
     </div>
   );
@@ -115,7 +125,8 @@ function RoundBadge() {
   const text = "RANIA ABDELNASSER · SOFTWARE ENGINEER · ";
   return (
     <span className="relative flex size-[6.5rem] items-center justify-center rounded-full bg-background shadow-[0_14px_30px_-20px_rgba(52,43,51,.6)] md:size-28">
-      <svg aria-hidden viewBox="0 0 120 120" className="absolute inset-0 h-full w-full text-plum">
+      {/* The ring of text turns slowly; the star in the middle stays still. */}
+      <svg aria-hidden viewBox="0 0 120 120" className="animate-spin-slow absolute inset-0 h-full w-full text-plum">
         <defs>
           <path id="badge-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
         </defs>

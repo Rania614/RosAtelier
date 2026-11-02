@@ -12,10 +12,10 @@ import { cn } from "@/lib/utils";
  */
 const layout = [
   { cls: "lg:col-span-7", aspect: "wide" as const },
-  { cls: "md:mt-28 lg:col-span-4 lg:col-start-9 lg:mt-40", aspect: "tall" as const },
+  { cls: "md:mt-28 lg:col-span-5 lg:col-start-8 lg:mt-40", aspect: "tall" as const },
   { cls: "lg:col-span-5 lg:col-start-1 lg:-mt-10", aspect: "tall" as const },
   { cls: "md:mt-28 lg:col-span-6 lg:col-start-7 lg:mt-32", aspect: "wide" as const },
-  { cls: "md:col-span-8 lg:col-span-8 lg:col-start-3", aspect: "wide" as const },
+  { cls: "md:col-span-8 lg:col-span-6 lg:col-start-4", aspect: "wide" as const },
 ];
 
 export async function SelectedWork() {
