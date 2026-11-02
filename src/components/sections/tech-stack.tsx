@@ -12,7 +12,7 @@ export async function TechStack() {
           <div className="col-span-full lg:col-span-4">
             <div className="lg:sticky lg:top-28">
               <div className="flex items-center gap-4 border-t border-ink/12 pt-4 text-plum">
-                <span className="label-mono">05</span>
+                <span className="label-mono">06</span>
                 <span aria-hidden className="h-px w-8 bg-mauve/50" />
                 <span className="label-mono">Tech stack</span>
               </div>

@@ -29,7 +29,7 @@ export default function OpengraphImage() {
           <span style={{ color: "#75536B" }}>thoughtful digital experiences.</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 28 }}>
-          <span style={{ fontFamily: "serif", fontStyle: "italic", fontSize: 48 }}>rania.</span>
+          <span style={{ fontFamily: "serif", fontSize: 48 }}>Rania.</span>
           <span style={{ color: "#75536B" }}>{siteConfig.name} · {siteConfig.location}</span>
         </div>
       </div>

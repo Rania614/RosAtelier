@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { TechIcon } from "@/components/ui/tech-icon";
+import { HighlightChips } from "./highlight-chips";
 import type { Project } from "@/types/project";
 import { cn, pad } from "@/lib/utils";
 import { ProjectCover } from "./project-cover";
@@ -67,7 +68,8 @@ export function ProjectCard({ project, index, aspect = "wide", headingLevel = "h
               </span>
             </Link>
           </Heading>
-          <p className="mt-3 max-w-md text-[0.9375rem] leading-relaxed text-ink/70">{project.tagline}</p>
+          <p className="mt-3 max-w-md text-[0.9875rem] leading-relaxed text-ink/75">{project.tagline}</p>
+          <HighlightChips items={project.highlights} className="mt-4" />
 
           <p className="mt-4 font-mono text-[0.75rem] leading-relaxed text-plum">
             {project.technologies.join("  /  ")}
@@ -75,7 +77,7 @@ export function ProjectCard({ project, index, aspect = "wide", headingLevel = "h
 
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-semibold">
             <span className="inline-flex items-center gap-1.5 text-ink">
-              {hasFullStudy ? "Read case study" : "View project"}
+              {hasFullStudy || project.story ? "Read case study" : "View project"}
               <ArrowUpRight aria-hidden className="size-4 text-plum" />
             </span>
             {project.links.live ? (

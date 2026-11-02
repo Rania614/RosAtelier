@@ -50,6 +50,14 @@ export interface Project {
   order: number;
   /** `image` = real screenshot; without it the illustrated motif is shown. */
   cover: { motif: CoverMotif; tone: ProjectTone; image?: ProjectImage };
+  /** Short proof points shown as chips on cards and pages, e.g. "20+ production bugs fixed". Verified facts only. */
+  highlights?: string[];
+  /** Structured story shown on every project page: the problem, what I built, and verified results. */
+  story?: {
+    challenge: string;
+    built: string[];
+    results?: string[];
+  };
   /** Real screenshots of public pages, shown on the project page. Never authenticated/private screens. */
   screenshots?: ProjectImage[];
   links: ProjectLinks;

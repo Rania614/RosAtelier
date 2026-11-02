@@ -7,7 +7,7 @@
 
 export const siteConfig = {
   brand: "Rosé Atelier",
-  wordmark: "rania",
+  wordmark: "Rania",
   name: "Rania Abdelnasser",
   title: "Software Engineer",
   discipline: "Full-Stack Development",
@@ -29,7 +29,7 @@ export const siteConfig = {
   resumeUrl: "/resume.pdf",
 
   /** Hero portrait (4:5). Set to `null` to show the editorial placeholder instead. */
-  portrait: "/images/portrait.jpg" as string | null,
+  portrait: "/images/portrait-at-work.jpg" as string | null,
 
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/rania-abdelnasser" },

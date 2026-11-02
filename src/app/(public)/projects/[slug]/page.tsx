@@ -3,7 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { getAdjacentProjects, getProjectBySlug, getProjectSlugs } from "@/lib/data";
-import type { CaseStudyBlock, Project } from "@/types/project";
+import type { Project } from "@/types/project";
+import { HighlightChips } from "@/components/projects/highlight-chips";
+import { ProjectStory } from "@/components/projects/project-story";
+import { siteConfig } from "@/config/site";
 import { ProjectCover } from "@/components/projects/project-cover";
 import { CaseStudyBlocks } from "@/components/projects/case-study-blocks";
 import { Reveal } from "@/components/ui/reveal";
@@ -27,27 +30,12 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
   };
 }
 
-/** Blocks shown when a project has no full case study yet. */
-function fallbackBlocks(): CaseStudyBlock[] {
-  // The overview above already carries the verified description and the role sits in the
-  // masthead, so the only block left is an honest note that the full write-up is coming.
-  return [
-    {
-      type: "placeholder",
-      id: "case-study",
-      eyebrow: "Case study",
-      title: "Full write-up in preparation",
-      note: "A detailed case study — context, challenges, architecture and outcomes — will be published here.",
-    },
-  ];
-}
-
 export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
   if (!project) notFound();
   const { next, previous } = await getAdjacentProjects(project.slug);
-  const blocks = project.caseStudy?.blocks ?? fallbackBlocks();
+  const blocks = project.caseStudy?.blocks ?? [];
 
   const meta = [
     { label: "Role", value: project.role },
@@ -77,6 +65,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               <p className="mt-6 max-w-2xl text-[1.125rem] leading-relaxed text-ink/75 md:text-[1.3125rem]">
                 {project.tagline}
               </p>
+              <HighlightChips items={project.highlights} tone="blush" className="mt-6" />
             </Reveal>
             <Reveal delay={0.1} className="col-span-full flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
               {project.links.live ? <ButtonLink href={project.links.live}>Visit live site</ButtonLink> : null}
@@ -129,8 +118,11 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       </section>
 
       <div className="container-atelier pb-20 md:pb-28">
+        <div className="mb-20 md:mb-28">
+          <ProjectStory project={project} />
+        </div>
         {project.screenshots?.length ? <Screens project={project} /> : null}
-        <CaseStudyBlocks blocks={blocks} />
+        {blocks.length ? <CaseStudyBlocks blocks={blocks} /> : null}
 
         {/* Technology stack */}
         <Reveal className="mt-20 md:mt-28">
@@ -182,12 +174,22 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
       <div className="bg-blush/45">
         <div className="container-atelier flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
-          <p className="font-serif text-[1.75rem] leading-tight text-ink md:text-[2.25rem]">
-            Have a project with similar challenges?
-          </p>
-          <ButtonLink href="/contact" icon={<ArrowUpRight aria-hidden className="size-4" />}>
-            Let&apos;s talk
-          </ButtonLink>
+          <div>
+            <p className="font-serif text-[1.75rem] leading-tight text-ink md:text-[2.25rem]">
+              Need something like {project.name}?
+            </p>
+            <p className="mt-2 max-w-xl text-[0.9875rem] leading-relaxed text-ink/75">
+              I can build it with you, from first screen to production. Hiring? My résumé has the full picture.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <ButtonLink href="/contact?type=freelance" icon={<ArrowUpRight aria-hidden className="size-4" />}>
+              Start a project
+            </ButtonLink>
+            <ButtonLink href={siteConfig.resumeUrl} variant="outline">
+              Download résumé
+            </ButtonLink>
+          </div>
         </div>
       </div>
     </article>

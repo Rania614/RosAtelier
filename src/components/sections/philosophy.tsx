@@ -18,7 +18,7 @@ export async function Philosophy() {
       <div className="container-atelier">
         <SectionHeader
           id="philosophy-title"
-          index="04"
+          index="05"
           eyebrow="Engineering philosophy"
           title={
             <>

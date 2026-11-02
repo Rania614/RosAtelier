@@ -10,7 +10,7 @@ export async function Journey() {
       <div className="container-atelier">
         <SectionHeader
           id="journey-title"
-          index="06"
+          index="07"
           eyebrow="Experience & journey"
           title={
             <>

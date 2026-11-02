@@ -1,7 +1,7 @@
 import { Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
-import { ButtonLink } from "@/components/ui/button-link";
 import { Reveal } from "@/components/ui/reveal";
+import { HireCards } from "./hire-cards";
 import { TechIcon } from "@/components/ui/tech-icon";
 
 const socialIcon: Record<string, React.ReactNode> = {
@@ -41,20 +41,13 @@ export function ContactBand({ index }: { index?: string }) {
               Let&apos;s create something <span className="text-rose">meaningful.</span>
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="col-span-full md:col-span-5 lg:col-span-5">
-            <p className="text-lg leading-relaxed text-background/80">
+          <Reveal delay={0.1} className="col-span-full md:col-span-8 lg:col-span-8">
+            <p className="max-w-xl text-lg leading-relaxed text-background/85">
               Open to exciting opportunities, meaningful collaborations, and ambitious digital projects.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/contact" variant="light">
-                Let&apos;s Talk
-              </ButtonLink>
-              <ButtonLink href={siteConfig.resumeUrl} variant="outline-light">
-                View Resume
-              </ButtonLink>
-            </div>
+            <HireCards tone="dark" className="mt-8" />
           </Reveal>
-          <Reveal delay={0.15} className="col-span-full flex items-end md:col-span-3 md:col-start-6 lg:col-span-4 lg:col-start-9">
+          <Reveal delay={0.15} className="col-span-full flex items-end md:col-span-8 lg:col-span-4 lg:col-start-9">
             <ul className="w-full divide-y divide-background/15 border-y border-background/15">
               {siteConfig.socials.map((s) => (
                 <li key={s.label}>

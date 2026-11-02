@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertCircle, CheckCircle2, Loader2, Mail } from "lucide-react";
@@ -18,8 +18,20 @@ export function ContactForm() {
     handleSubmit,
     reset,
     getValues,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ContactInput>({ resolver: zodResolver(contactSchema), mode: "onTouched" });
+
+  // "Start a project" links arrive with ?type=freelance — preselect the matching inquiry.
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get("type");
+    const map: Record<string, ContactInput["inquiry"]> = {
+      freelance: "Freelance project",
+      job: "Job opportunity",
+      collaboration: "Collaboration",
+    };
+    if (type && map[type]) setValue("inquiry", map[type]);
+  }, [setValue]);
 
   const onSubmit = async (data: ContactInput) => {
     setResult(null);

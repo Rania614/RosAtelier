@@ -76,9 +76,25 @@ export const projects: Project[] = [
     context: "Freelance",
     role: "Full-Stack Developer (Freelance)",
     period: "Mar 2026 — Sep 2026",
-    technologies: ["React", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
+    technologies: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
     featured: true,
     order: 1,
+    highlights: ["Built end to end", "20+ production bugs fixed", "4 user roles"],
+    story: {
+      challenge:
+        "An academic publisher needed one platform to run its journals — from submission and peer review to publication — and to stay dependable once real authors and editors were using it.",
+      built: [
+        "The frontend (React, Vite, Tailwind CSS) and the backend (Node.js, Express.js, Prisma, PostgreSQL, REST APIs).",
+        "Role-based access with manuscript submission and review workflows for Admin, Author, Editor and Reviewer.",
+        "Crossref/DOI integration for published articles, SMTP email with Nodemailer, and a payment gateway.",
+        "Production deployment, then monthly development and maintenance after delivery.",
+      ],
+      results: [
+        "Live in production at pinnacle-academic.com.",
+        "Ran a production audit and fixed 20+ production bugs.",
+        "Kept improving the UI/UX after launch.",
+      ],
+    },
     cover: { motif: "journal", tone: "blush", image: shots.pinnacleHome },
     screenshots: [shots.pinnacleHome, shots.pinnacleSignIn],
     links: { caseStudy: true, live: "https://pinnacle-academic.com/login" },
@@ -97,20 +113,6 @@ export const projects: Project[] = [
           ],
         },
         {
-          type: "list",
-          id: "contribution",
-          eyebrow: "My contribution",
-          title: "Responsible end to end",
-          items: [
-            { title: "Full-stack development", body: "Frontend interface and backend services." },
-            { title: "Manuscript workflows", body: "Submission and peer-review flows across every stage." },
-            { title: "Role-based access", body: "Distinct permissions for Admin, Author, Editor and Reviewer." },
-            { title: "DOI integration", body: "Persistent identifiers for published articles." },
-            { title: "Payment integration", body: "Online payments connected to the publishing flow." },
-            { title: "Production maintenance", body: "Ongoing fixes, improvements and monitoring after launch." },
-          ],
-        },
-        {
           type: "pairs",
           id: "challenges",
           eyebrow: "Challenges & solutions",
@@ -122,7 +124,8 @@ export const projects: Project[] = [
             },
             {
               challenge: "A manuscript passes through many steps — submission, review, revision and decision.",
-              solution: "Structured manuscript workflows that keep each submission's status clear to everyone involved.",
+              solution:
+                "Structured manuscript workflows that keep each submission's status clear to everyone involved.",
             },
             {
               challenge: "Published research needs persistent, citable identifiers.",
@@ -130,7 +133,8 @@ export const projects: Project[] = [
             },
             {
               challenge: "A live platform has to stay dependable after launch.",
-              solution: "Continued production maintenance: diagnosing issues, shipping fixes and improving the experience.",
+              solution:
+                "Continued production maintenance: diagnosing issues, shipping fixes and improving the experience.",
             },
           ],
         },
@@ -143,7 +147,7 @@ export const projects: Project[] = [
             { name: "Client", detail: "React interface with role-specific workspaces" },
             { name: "API", detail: "Node.js & Express.js services and business logic" },
             { name: "Data", detail: "Prisma ORM over PostgreSQL" },
-            { name: "Integrations", detail: "DOI registration · payment gateway" },
+            { name: "Integrations", detail: "Crossref/DOI · payment gateway · SMTP email (Nodemailer)" },
           ],
           note: "Simplified overview for public presentation.",
         },
@@ -159,13 +163,6 @@ export const projects: Project[] = [
             { title: "DOI integration" },
             { title: "Online payments" },
           ],
-        },
-        {
-          type: "placeholder",
-          id: "impact",
-          eyebrow: "Results & impact",
-          title: "Outcomes",
-          note: "Only verified outcomes will be published here.",
         },
       ],
     },
@@ -183,6 +180,18 @@ export const projects: Project[] = [
     technologies: ["React", "REST APIs"],
     featured: true,
     order: 2,
+    highlights: ["4 role-based dashboards", "Landing page", "Saudi client"],
+    story: {
+      challenge:
+        "An engineering services platform serving four very different users — admins, engineers, clients and companies — each needing a workspace built around their own tasks.",
+      built: [
+        "Designed and built the frontend in React, in a MERN environment.",
+        "Four role-specific dashboards: Admin, Engineer, Client and Company.",
+        "The public landing page.",
+        "Frontend–backend integration with the API built by another developer.",
+      ],
+      results: ["Live at hixa.com.sa."],
+    },
     cover: { motif: "dashboard", tone: "plum", image: shots.hixaHome },
     screenshots: [shots.hixaHome],
     links: { live: "https://hixa.com.sa/" },
@@ -200,6 +209,18 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Express.js", "Prisma", "PostgreSQL"],
     featured: true,
     order: 3,
+    highlights: ["Built end to end", "4 user roles", "Arabic RTL"],
+    story: {
+      challenge:
+        "A charity caring for cancer patients needed to receive, review and track patient support requests across staff with different responsibilities.",
+      built: [
+        "A patient management system, frontend and backend, with React, TypeScript, Express.js, Prisma and PostgreSQL.",
+        "Role-based access for Administrator, Doctor, Medical Reviewer and Employee.",
+        "Workflows to manage and track patient support requests.",
+        "An Arabic, right-to-left interface.",
+      ],
+      results: ["Live at ayadi-alkhair.org."],
+    },
     cover: { motif: "clinic", tone: "blush", image: shots.ayadiHome },
     screenshots: [shots.ayadiHome],
     // The public homepage; /requests is only visible after signing in.
@@ -219,6 +240,20 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM"],
     featured: true,
     order: 4,
+    highlights: ["1st place · IEEE", "Built in 3 days", "Team of 3"],
+    story: {
+      challenge:
+        "Take a custom-printing brand from idea to a working website in a three-day competition: identity, storefront, ordering, tracking and a staff dashboard.",
+      built: [
+        "The customer-facing ordering flow: five guided steps from choosing a product to uploading your own design.",
+        "Social media post designs for the brand.",
+        "Worked in a team of three; teammates built the staff dashboard.",
+      ],
+      results: [
+        "1st place in the User Persona competition at Build & Brand, organised by IEEE Aswan SB.",
+        "Live at yozersief.vercel.app.",
+      ],
+    },
     cover: { motif: "mobile", tone: "blush", image: shots.yozersiefHome },
     screenshots: [shots.yozersiefHome, shots.yozersiefOrder],
     links: { live: "https://yozersief.vercel.app/" },
@@ -235,6 +270,17 @@ export const projects: Project[] = [
     technologies: ["React Native", "Expo", "Supabase", "Next.js"],
     featured: false,
     order: 5,
+    highlights: ["Mobile app + admin + landing", "Training project"],
+    story: {
+      challenge:
+        "A concept for a real estate platform that needed three surfaces working together: a mobile app for users, an admin dashboard and a marketing landing page.",
+      built: [
+        "The mobile app with React Native and Expo.",
+        "An admin dashboard.",
+        "A Next.js landing page.",
+        "A Supabase backend.",
+      ],
+    },
     cover: { motif: "mobile", tone: "blush" },
     links: {},
   },
@@ -248,9 +294,18 @@ export const projects: Project[] = [
     context: "Freelance · Saudi client",
     role: "Frontend Developer (Freelance)",
     period: "Jan 2026 — Apr 2026",
-    technologies: ["Frontend engineering", "API integration"],
+    technologies: ["React", "REST APIs"],
     featured: false,
     order: 6,
+    highlights: ["200+ contracts managed", "Saudi client"],
+    story: {
+      challenge: "A real estate office needed a clear dashboard to manage its properties and contracts.",
+      built: [
+        "Designed and built the React frontend of a real estate and property management dashboard.",
+        "Frontend–backend integration with the API built by another developer.",
+      ],
+      results: ["Used to manage 200+ contracts."],
+    },
     cover: { motif: "property", tone: "ivory" },
     links: {},
   },
@@ -264,9 +319,23 @@ export const projects: Project[] = [
     context: "Training project",
     role: "Frontend Developer Trainee",
     period: "Jun 2026 — Jul 2026",
-    technologies: ["Next.js", "React", "TypeScript", "Redux Toolkit"],
+    technologies: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "dnd-kit"],
     featured: false,
     order: 7,
+    highlights: ["Drag-and-drop board", "Code-reviewed PRs"],
+    story: {
+      challenge:
+        "A project management dashboard — projects, epics, tasks and members — built from Figma designs in a team that shipped through pull requests and code review.",
+      built: [
+        "A task board with drag-and-drop across eight statuses; each move is saved to the server before the board updates, so it never shows a change that wasn't stored.",
+        "Numbered pages on desktop and infinite scroll on mobile, from one endpoint.",
+        "Epic search that runs on the server across every page, debounced to one request per pause in typing.",
+        "Sign-up, login with remember-me, password reset and member invitations, plus build-time checks that stop a misconfigured deployment.",
+      ],
+      results: [
+        "Worked in feature branches with pull requests and code review, reviewed teammates' work and gave weekly technical presentations.",
+      ],
+    },
     cover: { motif: "code", tone: "plum" },
     links: { github: "https://github.com/Rania614/rafiq-frontend" },
   },

@@ -33,11 +33,11 @@ export function PortraitComposition() {
           {siteConfig.portrait ? (
             <Image
               src={siteConfig.portrait}
-              alt={`Illustrated portrait of ${siteConfig.name}`}
+              alt={`${siteConfig.name} at work on her laptop, seen from behind`}
               fill
               priority
               sizes="(min-width: 1024px) 34vw, (min-width: 768px) 60vw, 90vw"
-              className="object-cover"
+              className="object-cover object-[70%_bottom]"
             />
           ) : (
             <PortraitPlaceholder />
@@ -46,14 +46,14 @@ export function PortraitComposition() {
       </Reveal>
 
       {/* Floating technical labels */}
-      <Reveal delay={0.5} y={10} className="absolute left-0 top-[18%] sm:-left-2">
+      <Reveal delay={0.5} y={10} className="absolute right-0 top-[17%] sm:-right-2">
         <span className="label-mono inline-flex items-center gap-2 rounded-full border border-ink/10 bg-surface/95 px-3 py-2 text-ink shadow-[0_12px_30px_-18px_rgba(52,43,51,.5)]">
           <span aria-hidden className="size-1.5 rounded-[2px] bg-plum" />
           TypeScript · strict
         </span>
       </Reveal>
 
-      <Reveal delay={0.6} y={10} className="absolute -right-1 top-[30%] hidden min-[400px]:block lg:-right-4">
+      <Reveal delay={0.6} y={10} className="absolute -left-2 top-[34%] hidden min-[400px]:block lg:-left-6">
         <div className="rounded-[14px] border border-ink/10 bg-surface/95 px-4 py-3.5 font-mono text-[0.6875rem] leading-[1.7] text-ink/80 shadow-[0_18px_40px_-22px_rgba(52,43,51,.55)]">
           <p>
             <span className="text-plum">const</span> atelier = {"{"}

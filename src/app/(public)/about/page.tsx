@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { PageIntro } from "@/components/ui/page-intro";
 import { AboutRow } from "@/components/about/about-row";
 import { ContactBand } from "@/components/sections/contact-band";
+import { BeyondCode } from "@/components/sections/beyond-code";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -103,6 +104,7 @@ export default async function AboutPage() {
         </AboutRow>
       </div>
 
+      <BeyondCode />
       <ContactBand />
     </>
   );
