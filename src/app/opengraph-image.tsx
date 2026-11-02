@@ -26,7 +26,7 @@ export default function OpengraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 76, lineHeight: 1.05, fontFamily: "serif" }}>
           <span>Turning complex ideas into</span>
-          <span style={{ color: "#75536B", fontStyle: "italic" }}>thoughtful digital experiences.</span>
+          <span style={{ color: "#75536B" }}>thoughtful digital experiences.</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", fontSize: 28 }}>
           <span style={{ fontFamily: "serif", fontStyle: "italic", fontSize: 48 }}>rania.</span>

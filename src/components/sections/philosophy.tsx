@@ -22,7 +22,7 @@ export async function Philosophy() {
           eyebrow="Engineering philosophy"
           title={
             <>
-              How I Approach <em className="italic text-plum">Engineering</em>
+              How I Approach <span className="text-plum">Engineering</span>
             </>
           }
           intro="Four disciplines I bring together on every product — so the interface, the logic underneath and the system in production all hold up."
@@ -44,8 +44,8 @@ export async function Philosophy() {
                 )}
               >
                 <div className="flex items-start justify-between">
-                  <span className="font-serif text-[2.75rem] italic leading-none text-plum md:text-[3.25rem]">{cap.numeral}</span>
-                  <Icon aria-hidden strokeWidth={1.25} className="size-7 text-mauve" />
+                  <span className="font-serif text-[2.75rem] leading-none text-plum md:text-[3.25rem]">{cap.numeral}</span>
+                  <Icon aria-hidden strokeWidth={1.25} className="size-7 text-plum" />
                 </div>
                 <h3 className="mt-6 font-serif text-[1.625rem] md:mt-10 leading-tight tracking-[-0.01em] text-ink lg:mt-auto">
                   {cap.title}
@@ -53,7 +53,7 @@ export async function Philosophy() {
                 <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink/70">{cap.summary}</p>
                 <ul className="mt-6 space-y-1.5 border-t border-ink/10 pt-5">
                   {cap.focus.map((f) => (
-                    <li key={f} className="label-mono flex items-center gap-2 text-ink/60">
+                    <li key={f} className="label-mono flex items-center gap-2 text-ink/70">
                       <span aria-hidden className="h-px w-3 bg-mauve" />
                       {f}
                     </li>

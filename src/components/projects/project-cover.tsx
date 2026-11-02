@@ -1,41 +1,64 @@
-import Image from "next/image";
 import type { CoverMotif, Project, ProjectTone } from "@/types/project";
 import { cn } from "@/lib/utils";
+import { BrowserFrame } from "./browser-frame";
 
 /**
- * Project cover. Uses `project.cover.image` when a real screenshot exists;
- * otherwise renders an illustrated, palette-only placeholder whose motif hints
- * at the product type (journal, dashboard, clinic, mobile, property, code).
+ * Project cover. With `project.cover.image` (a real screenshot) it shows the page in a
+ * browser frame on the project's tone; otherwise it renders an illustrated, palette-only
+ * placeholder whose motif hints at the product type.
  */
 export function ProjectCover({
   project,
   className,
-  sizes = "(min-width: 1024px) 55vw, 100vw",
+  sizes = "(min-width: 1024px) 45vw, (min-width: 768px) 50vw, 100vw",
   priority,
+  variant = "card",
 }: {
   project: Project;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** "card": fills a fixed-ratio box. "hero": natural height, framed screenshot centred. */
+  variant?: "card" | "hero";
 }) {
   const { image, motif, tone } = project.cover;
+
+  if (image) {
+    return (
+      <div className={cn("relative overflow-hidden", toneBg[tone], className)}>
+        <div
+          className={cn(
+            variant === "card"
+              ? // The window rises from the bottom edge, leaving the top clear for the category badge.
+                "absolute inset-x-[7%] top-[17%]"
+              : "flex justify-center px-5 py-10 md:px-12 md:py-16",
+          )}
+        >
+          <BrowserFrame
+            image={image}
+            sizes={variant === "hero" ? "(min-width: 1024px) 880px, 92vw" : sizes}
+            priority={priority}
+            className={cn(
+              "w-full transition-transform duration-500 ease-atelier",
+              variant === "card" ? "group-hover:-translate-y-1.5" : "max-w-[880px]",
+            )}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className={cn("relative overflow-hidden", toneBg[tone], className)}>
-      {image ? (
-        <Image src={image.src} alt={image.alt} fill sizes={sizes} priority={priority} className="object-cover" />
-      ) : (
-        <>
-          <svg
-            role="img"
-            aria-label={`Illustrated placeholder cover for ${project.name}`}
-            viewBox="0 0 800 600"
-            preserveAspectRatio="xMidYMid meet"
-            className="absolute inset-0 h-full w-full transition-transform duration-700 ease-atelier group-hover:scale-[1.035]"
-          >
-            <Motif motif={motif} c={palette[tone]} />
-          </svg>
-        </>
-      )}
+    <div className={cn("relative overflow-hidden", toneBg[tone], variant === "hero" && "aspect-[4/3] md:aspect-[16/8]", className)}>
+      <svg
+        role="img"
+        aria-label={`Illustrated placeholder cover for ${project.name}`}
+        viewBox="0 0 800 600"
+        preserveAspectRatio="xMidYMid meet"
+        className="absolute inset-0 h-full w-full transition-transform duration-700 ease-atelier group-hover:scale-[1.035]"
+      >
+        <Motif motif={motif} c={palette[tone]} />
+      </svg>
     </div>
   );
 }
@@ -76,7 +99,7 @@ function Motif({ motif, c }: { motif: CoverMotif; c: Colors }) {
           <g transform="rotate(4 380 320)">
             <rect x="250" y="100" width="300" height="400" rx="10" fill={c.panel} />
             <rect x="282" y="138" width="90" height="8" rx="4" fill={c.accent} />
-            <text x="282" y="200" fontFamily="Georgia, serif" fontSize="34" fontStyle="italic" fill={c.ink}>
+            <text x="282" y="200" fontFamily="Georgia, serif" fontSize="34" fill={c.ink}>
               Manuscript
             </text>
             <Lines x={282} y={232} w={236} n={4} c={c.line} />
@@ -203,7 +226,7 @@ function Motif({ motif, c }: { motif: CoverMotif; c: Colors }) {
           <g transform="translate(250 110)">
             <rect x="20" y="20" width="130" height="120" rx="6" fill={c.line} opacity=".6" />
             <rect x="270" y="250" width="130" height="110" rx="6" fill={c.soft} />
-            <text x="34" y="122" fontFamily="Georgia, serif" fontStyle="italic" fontSize="26" fill={c.ink} opacity=".8">
+            <text x="34" y="122" fontFamily="Georgia, serif" fontSize="26" fill={c.ink} opacity=".8">
               Unit A
             </text>
           </g>

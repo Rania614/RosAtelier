@@ -64,12 +64,9 @@ Components read data only through `src/lib/data.ts`. When the custom CMS (Next.j
 
 | Item | Where | Status |
 | --- | --- | --- |
-| Portrait | add `public/images/portrait.jpg` (4:5) and set `portrait` in `src/config/site.ts` | editorial placeholder renders |
 | Résumé | replace `public/resume.pdf` | clearly labelled placeholder PDF |
-| Contact email | `email` in `src/config/site.ts` | `hello@example.com` |
 | Production domain | `seo.siteUrl` in `src/config/site.ts` | example domain |
 | Contact form delivery | set `NEXT_PUBLIC_CONTACT_ENDPOINT` (an endpoint that accepts JSON POST) | until set, the form says honestly that it isn't connected and offers a pre-filled email instead |
-| Freelance and ITI dates | `src/data/experience.ts` (`placeholder: true`) | shown as "Dates to confirm" with a dashed marker |
 | Certifications | `src/data/about.ts` | marked "to be added" |
 | Project screenshots | `cover.image` and `gallery` blocks | illustrated placeholder covers |
 | Pinnacle results and impact | `src/data/projects.ts` | placeholder block; add only verified outcomes |

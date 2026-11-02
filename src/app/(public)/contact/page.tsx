@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { PageIntro } from "@/components/ui/page-intro";
 import { ContactForm } from "@/components/contact/contact-form";
@@ -19,7 +19,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title={
           <>
-            Let&apos;s create something <em className="italic text-plum">meaningful.</em>
+            Let&apos;s create something <span className="text-plum">meaningful.</span>
           </>
         }
         intro="Open to exciting opportunities, meaningful collaborations, and ambitious digital projects."
@@ -29,20 +29,24 @@ export default function ContactPage() {
           <Reveal className="col-span-full lg:col-span-4">
             <div className="space-y-10 lg:sticky lg:top-28">
               <div>
-                <p className="label-mono flex items-center gap-2 text-mauve">
+                <p className="label-mono flex items-center gap-2 text-plum">
                   <AvailabilityDot /> Availability
                 </p>
                 <p className="mt-3 font-serif text-2xl leading-snug text-ink">{siteConfig.availability.long}</p>
               </div>
               <div>
-                <p className="label-mono text-mauve">Direct</p>
+                <p className="label-mono text-plum">Direct</p>
                 <a href={`mailto:${siteConfig.email}`} className="mt-3 inline-flex items-center gap-2 text-ink hover:text-plum">
                   <Mail aria-hidden className="size-4" />
                   <span className="link-underline font-medium">{siteConfig.email}</span>
                 </a>
+                <a href={siteConfig.phone.href} className="mt-3 flex items-center gap-2 text-ink hover:text-plum">
+                  <Phone aria-hidden className="size-4" />
+                  <span className="link-underline font-medium">{siteConfig.phone.display}</span>
+                </a>
               </div>
               <div>
-                <p className="label-mono text-mauve">Elsewhere</p>
+                <p className="label-mono text-plum">Elsewhere</p>
                 <ul className="mt-3 space-y-2">
                   {siteConfig.socials.map((s) => (
                     <li key={s.label}>
@@ -54,7 +58,7 @@ export default function ContactPage() {
                 </ul>
               </div>
               <div>
-                <p className="label-mono text-mauve">Based in</p>
+                <p className="label-mono text-plum">Based in</p>
                 <p className="mt-3 font-medium text-ink">{siteConfig.location} · working remotely</p>
               </div>
             </div>

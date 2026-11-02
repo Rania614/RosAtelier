@@ -7,14 +7,14 @@ export function PageIntro({ eyebrow, title, intro, children }: { eyebrow: string
     <section className="relative overflow-hidden pb-14 pt-32 md:pb-20 md:pt-44">
       <div aria-hidden className="pointer-events-none absolute -right-[15%] -top-[30%] h-[120%] w-[55%] rounded-full bg-blush/60 blur-[120px]" />
       <div className="container-atelier relative">
-        <Reveal y={10} className="flex items-center gap-4 text-mauve">
+        <Reveal y={10} className="flex items-center gap-4 text-plum">
           <span className="label-mono text-plum">{eyebrow}</span>
           <span aria-hidden className="h-px w-10 bg-mauve/50" />
           <span className="label-mono">Rosé Atelier</span>
         </Reveal>
         <div className="grid-atelier mt-6 items-end gap-y-8">
           <Reveal className="col-span-full lg:col-span-8">
-            <h1 className="font-serif text-[3rem] leading-[0.98] tracking-[-0.03em] text-ink md:text-[5rem] lg:text-[6rem]">
+            <h1 className="font-serif text-[3rem] leading-[1.04] tracking-[-0.02em] text-ink md:text-[5rem] lg:text-[6rem]">
               {title}
             </h1>
           </Reveal>

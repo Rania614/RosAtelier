@@ -14,7 +14,7 @@ export function CaseStudyBlocks({ blocks }: { blocks: CaseStudyBlock[] }) {
         <Reveal key={block.id}>
           <section aria-labelledby={`block-${block.id}`} className="grid-atelier gap-y-6">
             <div className="col-span-full lg:col-span-4">
-              <div className="flex items-center gap-3 border-t border-ink/12 pt-4 text-mauve lg:sticky lg:top-28">
+              <div className="flex items-center gap-3 border-t border-ink/12 pt-4 text-plum lg:sticky lg:top-28">
                 <span className="label-mono text-plum">{pad(i + 1)}</span>
                 <span aria-hidden className="h-px w-6 bg-mauve/50" />
                 <span className="label-mono">{block.eyebrow}</span>
@@ -53,10 +53,10 @@ function BlockBody({ block }: { block: CaseStudyBlock }) {
         <ul className="grid gap-px overflow-hidden rounded-[18px] border border-ink/10 bg-ink/10 sm:grid-cols-2">
           {block.items.map((item, i) => (
             <li key={item.title} className="flex gap-4 bg-surface p-6 sm:[&:last-child:nth-child(odd)]:col-span-2">
-              <span className="label-mono pt-1 text-mauve">{pad(i + 1)}</span>
+              <span className="label-mono pt-1 text-plum">{pad(i + 1)}</span>
               <div>
                 <p className="font-serif text-xl text-ink">{item.title}</p>
-                {item.body ? <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink/65">{item.body}</p> : null}
+                {item.body ? <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink/70">{item.body}</p> : null}
               </div>
             </li>
           ))}
@@ -68,7 +68,7 @@ function BlockBody({ block }: { block: CaseStudyBlock }) {
           {block.pairs.map((pair, i) => (
             <li key={pair.challenge} className="grid overflow-hidden rounded-[18px] border border-ink/10 md:grid-cols-2">
               <div className="bg-blush/60 p-6 md:p-7">
-                <p className="label-mono text-mauve">Challenge {pad(i + 1)}</p>
+                <p className="label-mono text-plum">Challenge {pad(i + 1)}</p>
                 <p className="mt-3 font-serif text-[1.25rem] leading-snug text-ink">{pair.challenge}</p>
               </div>
               <div className="bg-surface p-6 md:p-7">
@@ -97,7 +97,7 @@ function BlockBody({ block }: { block: CaseStudyBlock }) {
               </li>
             ))}
           </ol>
-          {block.note ? <p className="label-mono mt-5 text-ink/45">{block.note}</p> : null}
+          {block.note ? <p className="label-mono mt-5 text-ink/70">{block.note}</p> : null}
         </div>
       );
     case "gallery":
@@ -106,7 +106,7 @@ function BlockBody({ block }: { block: CaseStudyBlock }) {
           {block.images.map((img) => (
             <figure key={img.src}>
               <Image src={img.src} alt={img.alt} width={img.width} height={img.height} className="rounded-[18px] border border-ink/10" />
-              {img.caption ? <figcaption className="label-mono mt-3 text-ink/50">{img.caption}</figcaption> : null}
+              {img.caption ? <figcaption className="label-mono mt-3 text-ink/70">{img.caption}</figcaption> : null}
             </figure>
           ))}
         </div>
@@ -114,8 +114,8 @@ function BlockBody({ block }: { block: CaseStudyBlock }) {
     case "placeholder":
       return (
         <div className="flex items-center gap-4 rounded-[18px] border border-dashed border-mauve/50 bg-blush/30 px-6 py-8">
-          <span aria-hidden className="font-serif text-3xl italic text-rose">✦</span>
-          <p className="text-[0.9375rem] text-ink/65">{block.note}</p>
+          <span aria-hidden className="font-serif text-3xl text-rose">✦</span>
+          <p className="text-[0.9375rem] text-ink/70">{block.note}</p>
         </div>
       );
   }

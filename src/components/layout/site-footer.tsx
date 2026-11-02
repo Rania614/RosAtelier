@@ -12,12 +12,12 @@ export function SiteFooter() {
         <div className="grid-atelier gap-y-10">
           <div className="col-span-full md:col-span-4 lg:col-span-5">
             <Wordmark tone="light" className="text-[2.25rem]" />
-            <p className="mt-5 max-w-sm font-serif text-xl italic leading-snug text-background/75">
+            <p className="mt-5 max-w-sm font-serif text-xl leading-snug text-background/75">
               {siteConfig.brandStatement}
             </p>
           </div>
           <nav aria-label="Footer" className="col-span-2 md:col-span-2 lg:col-span-2 lg:col-start-8">
-            <p className="label-mono mb-4 text-background/45">Index</p>
+            <p className="label-mono mb-4 text-background/75">Index</p>
             <ul className="space-y-2.5 text-sm">
               {mainNav.map((item) => (
                 <li key={item.href}>
@@ -29,7 +29,7 @@ export function SiteFooter() {
             </ul>
           </nav>
           <div className="col-span-2 md:col-span-2 lg:col-span-2">
-            <p className="label-mono mb-4 text-background/45">Elsewhere</p>
+            <p className="label-mono mb-4 text-background/75">Elsewhere</p>
             <ul className="space-y-2.5 text-sm">
               {siteConfig.socials.map((s) => (
                 <li key={s.label}>
@@ -57,7 +57,7 @@ export function SiteFooter() {
             </a>
           </div>
         </div>
-        <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-6 text-background/50 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-6 text-background/75 md:flex-row md:items-center md:justify-between">
           <p className="label-mono">
             © <CurrentYear /> {siteConfig.name} · {siteConfig.brand}
           </p>

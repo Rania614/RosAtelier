@@ -7,7 +7,7 @@ export function Statement() {
     <section id="statement" aria-labelledby="statement-title" className="scroll-mt-24 py-24 md:py-32 lg:py-40">
       <div className="container-atelier">
         <div className="grid-atelier gap-y-10">
-          <Reveal className="col-span-full flex items-center gap-4 border-t border-ink/12 pt-4 text-mauve">
+          <Reveal className="col-span-full flex items-center gap-4 border-t border-ink/12 pt-4 text-plum">
             <span className="label-mono">02</span>
             <span aria-hidden className="h-px w-8 bg-mauve/50" />
             <span className="label-mono">Personal statement</span>
@@ -19,7 +19,7 @@ export function Statement() {
               className="font-serif text-[2.25rem] leading-[1.05] tracking-[-0.02em] text-ink md:text-[2.75rem]"
             >
               More than code.
-              <em className="mt-1 block italic text-plum">A thoughtful approach to building.</em>
+              <span className="mt-1 block text-plum">A thoughtful approach to building.</span>
             </h2>
           </Reveal>
 
@@ -30,7 +30,7 @@ export function Statement() {
                   &ldquo;
                 </span>
                 I believe great software is more than code. It&apos;s the result of{" "}
-                <em className="italic text-plum">thoughtful decisions</em>, meaningful design, and engineering that
+                <span className="text-plum">thoughtful decisions</span>, meaningful design, and engineering that
                 makes a difference.
               </blockquote>
             </Reveal>

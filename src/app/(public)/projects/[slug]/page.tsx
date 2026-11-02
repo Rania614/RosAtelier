@@ -9,6 +9,7 @@ import { CaseStudyBlocks } from "@/components/projects/case-study-blocks";
 import { Reveal } from "@/components/ui/reveal";
 import { ButtonLink } from "@/components/ui/button-link";
 import { TechIcon } from "@/components/ui/tech-icon";
+import { BrowserFrame } from "@/components/projects/browser-frame";
 
 export async function generateStaticParams() {
   return (await getProjectSlugs()).map((slug) => ({ slug }));
@@ -26,16 +27,11 @@ export async function generateMetadata({ params }: PageProps<"/projects/[slug]">
   };
 }
 
-/** Blocks shown when a project has no full case study yet — built only from its verified fields. */
-function fallbackBlocks(project: Project): CaseStudyBlock[] {
+/** Blocks shown when a project has no full case study yet. */
+function fallbackBlocks(): CaseStudyBlock[] {
+  // The overview above already carries the verified description and the role sits in the
+  // masthead, so the only block left is an honest note that the full write-up is coming.
   return [
-    {
-      type: "text",
-      id: "contribution",
-      eyebrow: "My contribution",
-      title: project.role,
-      body: [project.description],
-    },
     {
       type: "placeholder",
       id: "case-study",
@@ -51,7 +47,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   const project = await getProjectBySlug(slug);
   if (!project) notFound();
   const { next, previous } = await getAdjacentProjects(project.slug);
-  const blocks = project.caseStudy?.blocks ?? fallbackBlocks(project);
+  const blocks = project.caseStudy?.blocks ?? fallbackBlocks();
 
   const meta = [
     { label: "Role", value: project.role },
@@ -66,19 +62,19 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       <header className="relative overflow-hidden pb-12 pt-28 md:pb-16 md:pt-40">
         <div aria-hidden className="pointer-events-none absolute -right-[15%] -top-[25%] h-[110%] w-[55%] rounded-full bg-blush/60 blur-[120px]" />
         <div className="container-atelier relative">
-          <Link href="/projects" className="label-mono group inline-flex items-center gap-2 text-ink/60 hover:text-plum">
+          <Link href="/projects" className="label-mono group inline-flex items-center gap-2 text-ink/70 hover:text-plum">
             <ArrowLeft aria-hidden className="size-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
             All projects
           </Link>
           <div className="grid-atelier mt-10 items-end gap-y-8">
             <Reveal className="col-span-full lg:col-span-8">
-              <p className="label-mono text-mauve">
+              <p className="label-mono text-plum">
                 {String(project.order).padStart(2, "0")} · {project.category}
               </p>
-              <h1 className="mt-4 font-serif text-[3rem] leading-[0.98] tracking-[-0.03em] text-ink md:text-[5rem] lg:text-[6rem]">
+              <h1 className="mt-4 font-serif text-[3rem] leading-[1.04] tracking-[-0.02em] text-ink md:text-[5rem] lg:text-[6rem]">
                 {project.name}
               </h1>
-              <p className="mt-5 max-w-2xl font-serif text-[1.5rem] italic leading-snug text-plum md:text-[1.875rem]">
+              <p className="mt-6 max-w-2xl text-[1.125rem] leading-relaxed text-ink/75 md:text-[1.3125rem]">
                 {project.tagline}
               </p>
             </Reveal>
@@ -96,7 +92,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/12 pt-6 md:grid-cols-4">
               {meta.map((m) => (
                 <div key={m.label}>
-                  <dt className="label-mono text-mauve">{m.label}</dt>
+                  <dt className="label-mono text-plum">{m.label}</dt>
                   <dd className="mt-2 text-[0.9375rem] font-medium text-ink">{m.value}</dd>
                 </div>
               ))}
@@ -107,12 +103,12 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
 
       <div className="container-atelier">
         <Reveal>
-          <ProjectCover
-            project={project}
-            priority
-            sizes="100vw"
-            className="aspect-[4/3] rounded-[26px] border border-ink/10 md:aspect-[16/8]"
-          />
+          <ProjectCover project={project} priority variant="hero" className="rounded-[26px] border border-ink/10" />
+          {project.cover.image ? (
+            <p className="label-mono mt-4 text-ink/70">
+              {project.cover.image.caption} · captured from the live site — signed-in dashboards are not shown
+            </p>
+          ) : null}
         </Reveal>
       </div>
 
@@ -120,7 +116,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       <section aria-labelledby="overview-title" className="py-20 md:py-28">
         <div className="container-atelier grid-atelier gap-y-6">
           <div className="col-span-full lg:col-span-4">
-            <h2 id="overview-title" className="label-mono flex items-center gap-3 border-t border-ink/12 pt-4 text-mauve">
+            <h2 id="overview-title" className="label-mono flex items-center gap-3 border-t border-ink/12 pt-4 text-plum">
               Overview
             </h2>
           </div>
@@ -133,13 +129,14 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       </section>
 
       <div className="container-atelier pb-20 md:pb-28">
+        {project.screenshots?.length ? <Screens project={project} /> : null}
         <CaseStudyBlocks blocks={blocks} />
 
         {/* Technology stack */}
         <Reveal className="mt-20 md:mt-28">
           <section aria-labelledby="stack-heading" className="grid-atelier gap-y-6">
             <div className="col-span-full lg:col-span-4">
-              <p className="label-mono border-t border-ink/12 pt-4 text-mauve">Technology stack</p>
+              <p className="label-mono border-t border-ink/12 pt-4 text-plum">Technology stack</p>
             </div>
             <div className="col-span-full lg:col-span-8">
               <h2 id="stack-heading" className="sr-only">
@@ -164,14 +161,14 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             href={`/projects/${previous.slug}`}
             className="group flex flex-col justify-center gap-2 border-b border-ink/12 py-8 md:border-b-0 md:border-r md:py-14 md:pr-10"
           >
-            <span className="label-mono flex items-center gap-2 text-mauve">
+            <span className="label-mono flex items-center gap-2 text-plum">
               <ArrowLeft aria-hidden className="size-3.5 transition-transform group-hover:-translate-x-0.5" /> Previous
             </span>
             <span className="font-serif text-2xl text-ink group-hover:text-plum">{previous.name}</span>
           </Link>
           <Link href={`/projects/${next.slug}`} className="group flex items-center justify-between gap-6 py-10 md:py-14 md:pl-10">
             <span>
-              <span className="label-mono flex items-center gap-2 text-mauve">Next project</span>
+              <span className="label-mono flex items-center gap-2 text-plum">Next project</span>
               <span className="mt-3 block font-serif text-[2.25rem] leading-none tracking-[-0.02em] text-ink transition-colors group-hover:text-plum md:text-[3.5rem]">
                 {next.name}
               </span>
@@ -194,5 +191,36 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         </div>
       </div>
     </article>
+  );
+}
+
+/** Real screenshots of the live public pages, each labelled with where it was captured. */
+function Screens({ project }: { project: Project }) {
+  // The cover screenshot is already shown above, so only list the others here.
+  const shots = (project.screenshots ?? []).filter((img) => img.src !== project.cover.image?.src);
+  if (!shots.length) return null;
+  return (
+    <Reveal className="mb-20 md:mb-28">
+      <section aria-labelledby="screens-title" className="grid-atelier gap-y-6">
+        <div className="col-span-full lg:col-span-4">
+          <h2 id="screens-title" className="label-mono border-t border-ink/12 pt-4 text-plum">
+            Live screens
+          </h2>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/70">
+            Captured from the public, live site. Signed-in dashboards and client data are not shown.
+          </p>
+        </div>
+        <div className="col-span-full grid gap-8 lg:col-span-8 md:grid-cols-2">
+          {shots.map((img, i) => (
+            <figure key={img.src} className={shots.length === 1 || (shots.length % 2 === 1 && i === 0) ? "md:col-span-2" : undefined}>
+              <div className="rounded-[18px] bg-blush/70 p-4 md:p-6">
+                <BrowserFrame image={img} sizes="(min-width: 1024px) 760px, 92vw" />
+              </div>
+              {img.caption ? <figcaption className="label-mono mt-3 text-ink/70">{img.caption}</figcaption> : null}
+            </figure>
+          ))}
+        </div>
+      </section>
+    </Reveal>
   );
 }

@@ -27,7 +27,7 @@ export const about = {
     },
   ],
   certifications: [
-    { title: "ITI — Intensive Training Program", note: "Certificate details to be added", placeholder: true },
+    { title: "Front-End & Cross-Platform Mobile Application Development — ITI", note: "2025", placeholder: false },
     { title: "Additional certifications", note: "To be added", placeholder: true },
   ],
   goals:

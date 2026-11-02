@@ -1,4 +1,4 @@
-export type ExperienceKind = "Freelance" | "Engagement" | "Education" | "Training";
+export type ExperienceKind = "Freelance" | "Engagement" | "Competition" | "Education" | "Training";
 
 export interface ExperienceItem {
   id: string;

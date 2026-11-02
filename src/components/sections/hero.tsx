@@ -17,7 +17,7 @@ export function Hero() {
       {/* Vertical running head — desktop only */}
       <p
         aria-hidden
-        className="label-mono absolute left-5 top-1/2 hidden -translate-y-1/2 -rotate-90 origin-left text-mauve/70 xl:block"
+        className="label-mono absolute left-5 top-1/2 hidden -translate-y-1/2 -rotate-90 origin-left text-plum/80 xl:block"
       >
         {siteConfig.brand} — Portfolio
       </p>
@@ -25,7 +25,7 @@ export function Hero() {
       <div className="container-atelier relative">
         <div className="grid-atelier items-end gap-y-12">
           <div className="col-span-full lg:col-span-7 lg:pb-6">
-            <Reveal y={10} className="flex flex-wrap items-center gap-x-4 gap-y-2 text-mauve">
+            <Reveal y={10} className="flex flex-wrap items-center gap-x-4 gap-y-2 text-plum">
               <span className="label-mono text-plum">(01)</span>
               <span aria-hidden className="hidden h-px w-10 bg-mauve/50 sm:block" />
               <span className="label-mono">
@@ -68,21 +68,21 @@ export function Hero() {
         <Reveal delay={0.45} className="mt-16 md:mt-20">
           <dl className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-ink/12 pt-6 md:grid-cols-12">
             <div className="md:col-span-3">
-              <dt className="label-mono text-mauve">Based in</dt>
+              <dt className="label-mono text-plum">Based in</dt>
               <dd className="mt-2 font-serif text-xl text-ink">{siteConfig.location}</dd>
             </div>
             <div className="md:col-span-3">
-              <dt className="label-mono text-mauve">Focus</dt>
+              <dt className="label-mono text-plum">Focus</dt>
               <dd className="mt-2 font-serif text-xl text-ink">Web apps &amp; systems</dd>
             </div>
             <div className="col-span-2 md:col-span-4">
-              <dt className="label-mono flex items-center gap-2 text-mauve">
+              <dt className="label-mono flex items-center gap-2 text-plum">
                 <AvailabilityDot /> Availability
               </dt>
               <dd className="mt-2 text-[0.9375rem] leading-relaxed text-ink/80">{siteConfig.availability.long}</dd>
             </div>
             <div className="col-span-2 hidden items-end justify-end md:col-span-2 md:flex">
-              <a href="#statement" className="label-mono group flex items-center gap-2 text-ink/60 hover:text-plum">
+              <a href="#statement" className="label-mono group flex items-center gap-2 text-ink/70 hover:text-plum">
                 Scroll
                 <ArrowDown aria-hidden className="size-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
               </a>

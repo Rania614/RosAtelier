@@ -1,4 +1,59 @@
-import type { Project } from "@/types/project";
+import type { Project, ProjectImage } from "@/types/project";
+
+/**
+ * Screenshots of the live, public pages (captured Nov 2026 from the URLs below).
+ * Only public pages — nothing behind a login, no client data.
+ */
+const shots = {
+  pinnacleHome: {
+    src: "/images/projects/pinnacle-academic-publishing/home.jpg",
+    alt: "Pinnacle Academic Publishing homepage: “Publishing Excellence in Oncology Research” hero with journal highlights",
+    width: 734,
+    height: 459,
+    caption: "Public homepage",
+    source: "https://pinnacle-academic.com/",
+  },
+  pinnacleSignIn: {
+    src: "/images/projects/pinnacle-academic-publishing/sign-in.jpg",
+    alt: "Pinnacle Academic Publishing submission portal sign-in page",
+    width: 800,
+    height: 500,
+    caption: "Submission portal — sign in",
+    source: "https://pinnacle-academic.com/login",
+  },
+  hixaHome: {
+    src: "/images/projects/hixa/home.jpg",
+    alt: "HIXA landing page in Arabic: construction and engineering hero with service categories",
+    width: 800,
+    height: 500,
+    caption: "Public landing page",
+    source: "https://hixa.com.sa/",
+  },
+  ayadiHome: {
+    src: "/images/projects/ayadi-al-khair/home.jpg",
+    alt: "Ayadi Al-Khair homepage in Arabic introducing the association's care services for cancer patients",
+    width: 800,
+    height: 500,
+    caption: "Public homepage",
+    source: "https://ayadi-alkhair.org/",
+  },
+  yozersiefHome: {
+    src: "/images/projects/yozersief/home.jpg",
+    alt: "Yozersief homepage in Arabic: “مطبوعات تحكي قصتك” hero with printed hoodies, caps and a mug",
+    width: 800,
+    height: 500,
+    caption: "Public homepage",
+    source: "https://yozersief.vercel.app/",
+  },
+  yozersiefOrder: {
+    src: "/images/projects/yozersief/order.jpg",
+    alt: "Yozersief five-step order flow, step one: choosing who the order is for and which product to print",
+    width: 792,
+    height: 495,
+    caption: "Ordering flow — step 1 of 5",
+    source: "https://yozersief.vercel.app/order",
+  },
+} satisfies Record<string, ProjectImage>;
 
 /**
  * Projects — the single source of project content.
@@ -24,7 +79,8 @@ export const projects: Project[] = [
     technologies: ["React", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
     featured: true,
     order: 1,
-    cover: { motif: "journal", tone: "blush" },
+    cover: { motif: "journal", tone: "blush", image: shots.pinnacleHome },
+    screenshots: [shots.pinnacleHome, shots.pinnacleSignIn],
     links: { caseStudy: true, live: "https://pinnacle-academic.com/login" },
     caseStudy: {
       overview:
@@ -106,13 +162,6 @@ export const projects: Project[] = [
         },
         {
           type: "placeholder",
-          id: "gallery",
-          eyebrow: "Gallery",
-          title: "Interface screenshots",
-          note: "Screenshots will be added once they are approved for public sharing.",
-        },
-        {
-          type: "placeholder",
           id: "impact",
           eyebrow: "Results & impact",
           title: "Outcomes",
@@ -134,7 +183,8 @@ export const projects: Project[] = [
     technologies: ["React", "REST APIs"],
     featured: true,
     order: 2,
-    cover: { motif: "dashboard", tone: "plum" },
+    cover: { motif: "dashboard", tone: "plum", image: shots.hixaHome },
+    screenshots: [shots.hixaHome],
     links: { live: "https://hixa.com.sa/" },
   },
   {
@@ -150,8 +200,28 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Express.js", "Prisma", "PostgreSQL"],
     featured: true,
     order: 3,
-    cover: { motif: "clinic", tone: "ivory" },
-    links: { live: "https://ayadi-alkhair.org/requests" },
+    cover: { motif: "clinic", tone: "blush", image: shots.ayadiHome },
+    screenshots: [shots.ayadiHome],
+    // The public homepage; /requests is only visible after signing in.
+    links: { live: "https://ayadi-alkhair.org/" },
+  },
+  {
+    slug: "yozersief",
+    name: "Yozersief",
+    tagline: "A custom-printing storefront with a guided ordering flow — 1st place at IEEE Aswan SB's Build & Brand.",
+    description:
+      "A website for Yozersief, a custom-printing brand, built by a team of three in a three-day competition: Build & Brand, organised by IEEE Aswan SB, where our team won first place in the User Persona competition. I built the customer-facing frontend — the guided ordering flow where customers choose a product and upload their own design — and designed social media posts for the brand.",
+    category: "Frontend",
+    context: "Competition · IEEE Aswan SB · 1st place",
+    role: "Frontend Developer (team of three)",
+    period: "22 — 24 Oct 2026",
+    // Project stack, from the team repo's README.
+    technologies: ["Next.js", "TypeScript", "PostgreSQL", "Drizzle ORM"],
+    featured: true,
+    order: 4,
+    cover: { motif: "mobile", tone: "blush", image: shots.yozersiefHome },
+    screenshots: [shots.yozersiefHome, shots.yozersiefOrder],
+    links: { live: "https://yozersief.vercel.app/" },
   },
   {
     slug: "nuzzul",
@@ -163,8 +233,8 @@ export const projects: Project[] = [
     context: "Training project",
     role: "Mobile & Frontend Developer",
     technologies: ["React Native", "Expo", "Supabase", "Next.js"],
-    featured: true,
-    order: 4,
+    featured: false,
+    order: 5,
     cover: { motif: "mobile", tone: "blush" },
     links: {},
   },
@@ -180,7 +250,7 @@ export const projects: Project[] = [
     period: "Jan 2026 — Apr 2026",
     technologies: ["Frontend engineering", "API integration"],
     featured: false,
-    order: 5,
+    order: 6,
     cover: { motif: "property", tone: "ivory" },
     links: {},
   },
@@ -196,7 +266,7 @@ export const projects: Project[] = [
     period: "Jun 2026 — Jul 2026",
     technologies: ["Next.js", "React", "TypeScript", "Redux Toolkit"],
     featured: false,
-    order: 6,
+    order: 7,
     cover: { motif: "code", tone: "plum" },
     links: { github: "https://github.com/Rania614/rafiq-frontend" },
   },

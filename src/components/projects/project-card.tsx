@@ -19,6 +19,7 @@ const aspects = {
   wide: "aspect-[4/3] md:aspect-[16/11]",
   tall: "aspect-[4/3] md:aspect-[4/5]",
   square: "aspect-[4/3] md:aspect-square",
+  screen: "aspect-[4/3] md:aspect-[5/4]",
 };
 
 /**
@@ -27,6 +28,8 @@ const aspects = {
  */
 export function ProjectCard({ project, index, aspect = "wide", headingLevel = "h3", className, priority }: Props) {
   const Heading = headingLevel;
+  // Real screenshots are landscape: give them a landscape box so they read at a useful size.
+  const box = project.cover.image ? (aspect === "wide" ? aspects.wide : aspects.screen) : aspects[aspect];
   const hasFullStudy = Boolean(project.caseStudy);
   return (
     <article className={cn("group relative flex flex-col", className)}>
@@ -36,7 +39,7 @@ export function ProjectCard({ project, index, aspect = "wide", headingLevel = "h
           priority={priority}
           className={cn(
             "rounded-[22px] border border-ink/8 shadow-[0_1px_0_rgba(52,43,51,.04)] transition-shadow duration-500 group-hover:shadow-[0_40px_60px_-40px_rgba(52,43,51,.45)]",
-            aspects[aspect],
+            box,
           )}
         />
         <span className="label-mono absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1.5 text-ink backdrop-blur-sm">
@@ -51,9 +54,9 @@ export function ProjectCard({ project, index, aspect = "wide", headingLevel = "h
       </div>
 
       <div className="mt-6 grid grid-cols-[auto_1fr] gap-x-5 md:mt-7">
-        <span className="label-mono pt-2 text-mauve">{pad(index)}</span>
+        <span className="label-mono pt-2 text-plum">{pad(index)}</span>
         <div>
-          <p className="label-mono text-ink/50">{project.context}</p>
+          <p className="label-mono text-ink/70">{project.context}</p>
           <Heading className="mt-2 font-serif text-[1.75rem] leading-[1.1] tracking-[-0.015em] text-ink md:text-[2rem]">
             <Link
               href={`/projects/${project.slug}`}

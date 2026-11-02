@@ -28,7 +28,7 @@ export async function SelectedWork() {
           eyebrow="Featured projects"
           title={
             <>
-              Selected <em className="italic text-plum">Work</em>
+              Selected <span className="text-plum">Work</span>
             </>
           }
           intro="Some problems I've solved, products I've built, and ideas I've brought to life."
@@ -51,9 +51,9 @@ export async function SelectedWork() {
             className="group flex items-end justify-between gap-6 border-y border-ink/12 py-8 md:py-10"
           >
             <span>
-              <span className="label-mono block text-mauve">Archive · {all.length} projects</span>
+              <span className="label-mono block text-plum">Archive · {all.length} projects</span>
               <span className="mt-3 block font-serif text-[2rem] leading-none tracking-[-0.02em] text-ink transition-colors group-hover:text-plum md:text-[3.25rem]">
-                View all <em className="italic">projects</em>
+                View all <span>projects</span>
               </span>
             </span>
             <span className="flex size-14 shrink-0 items-center justify-center rounded-full border border-ink/20 transition-all duration-300 ease-atelier group-hover:border-plum group-hover:bg-plum group-hover:text-background md:size-20">

@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Reveal } from "@/components/ui/reveal";
@@ -36,9 +36,9 @@ export function ContactBand({ index }: { index?: string }) {
           <Reveal className="col-span-full lg:col-span-9">
             <h2
               id="contact-band-title"
-              className="font-serif text-[3rem] leading-[0.98] tracking-[-0.03em] md:text-[5rem] lg:text-[6.5rem]"
+              className="font-serif text-[3rem] leading-[1.04] tracking-[-0.02em] md:text-[5rem] lg:text-[6.5rem]"
             >
-              Let&apos;s create something <em className="italic text-rose">meaningful.</em>
+              Let&apos;s create something <span className="text-rose">meaningful.</span>
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="col-span-full md:col-span-5 lg:col-span-5">
@@ -68,7 +68,7 @@ export function ContactBand({ index }: { index?: string }) {
                       {socialIcon[s.label]}
                       <span className="font-medium">{s.label}</span>
                     </span>
-                    <span className="label-mono text-background/50 transition-transform duration-300 group-hover:translate-x-1">↗</span>
+                    <span className="label-mono text-background/75 transition-transform duration-300 group-hover:translate-x-1">↗</span>
                   </a>
                 </li>
               ))}
@@ -81,7 +81,19 @@ export function ContactBand({ index }: { index?: string }) {
                     <Mail aria-hidden className="size-4" />
                     <span className="font-medium">Email</span>
                   </span>
-                  <span className="label-mono text-background/50 transition-transform duration-300 group-hover:translate-x-1">↗</span>
+                  <span className="label-mono text-background/75 transition-transform duration-300 group-hover:translate-x-1">↗</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.phone.href}
+                  className="group flex items-center justify-between py-4 text-background/85 transition-colors hover:text-background"
+                >
+                  <span className="flex items-center gap-3">
+                    <Phone aria-hidden className="size-4" />
+                    <span className="font-medium">{siteConfig.phone.display}</span>
+                  </span>
+                  <span className="label-mono text-background/75 transition-transform duration-300 group-hover:translate-x-1">↗</span>
                 </a>
               </li>
             </ul>

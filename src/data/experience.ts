@@ -6,11 +6,21 @@ import type { ExperienceItem } from "@/types/experience";
  */
 export const experience: ExperienceItem[] = [
   {
+    id: "build-and-brand",
+    kind: "Competition",
+    title: "Frontend Developer — 1st place, User Persona competition",
+    organization: "Build & Brand · IEEE Aswan SB",
+    period: { label: "22 — 24 Oct 2026" },
+    summary:
+      "Team of three building a custom-printing website from idea to launch. I built the customer-facing ordering flow, where customers choose a product and upload their own design.",
+    projectSlug: "yozersief",
+  },
+  {
     id: "freelance",
     kind: "Freelance",
     title: "Freelance Software Development",
     organization: "Independent",
-    period: { label: "Dates to confirm", placeholder: true },
+    period: { label: "Jun 2025 — Sep 2026" },
     summary:
       "Independent client engagements across web and mobile — from frontend builds and API integration to end-to-end full-stack platforms.",
     technologies: ["React", "TypeScript", "Node.js", "Prisma", "PostgreSQL", "React Native"],
@@ -47,11 +57,11 @@ export const experience: ExperienceItem[] = [
   {
     id: "iti",
     kind: "Training",
-    title: "Intensive Training Program",
+    title: "Front-End & Cross-Platform Mobile Application Development",
     organization: "Information Technology Institute (ITI)",
-    period: { label: "Dates to confirm", placeholder: true },
-    summary: "A four-month intensive software development program. Certifications to be listed here.",
-    highlights: ["Certifications — to be added"],
+    period: { label: "2025" },
+    summary:
+      "A four-month intensive training program in front-end and cross-platform mobile development. Graduation project: Elevante, which I led as team lead.",
   },
   {
     id: "aast",

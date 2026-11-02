@@ -21,7 +21,7 @@ export default async function AboutPage() {
         eyebrow="About"
         title={
           <>
-            An imaginative mind. <em className="italic text-plum">An engineering mindset.</em>
+            An imaginative mind. <span className="text-plum">An engineering mindset.</span>
           </>
         }
         intro="A world of possibilities — and a careful way of turning them into software. Here is a little more about how I think and work."
@@ -36,13 +36,13 @@ export default async function AboutPage() {
           </div>
         </AboutRow>
 
-        <AboutRow index="02" label="Engineering philosophy" title={<>Build it <em className="italic text-plum">thoughtfully</em>, keep it healthy.</>}>
+        <AboutRow index="02" label="Engineering philosophy" title={<>Build it <span className="text-plum">thoughtfully</span>, keep it healthy.</>}>
           <ol className="grid gap-px overflow-hidden rounded-[18px] border border-ink/10 bg-ink/10 sm:grid-cols-2">
             {capabilities.map((c) => (
               <li key={c.id} className="bg-surface p-6 md:p-7">
-                <span className="font-serif text-2xl italic text-plum">{c.numeral}</span>
+                <span className="font-serif text-2xl text-plum">{c.numeral}</span>
                 <p className="mt-3 font-serif text-xl text-ink">{c.title}</p>
-                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink/65">{c.summary}</p>
+                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-ink/70">{c.summary}</p>
               </li>
             ))}
           </ol>
@@ -59,7 +59,7 @@ export default async function AboutPage() {
         <AboutRow index="04" label="Technical interests">
           <ul className="flex flex-wrap gap-2.5">
             {about.interests.map((i) => (
-              <li key={i} className="rounded-full border border-ink/12 bg-surface px-5 py-2.5 font-serif text-lg italic text-ink">
+              <li key={i} className="rounded-full border border-ink/12 bg-surface px-5 py-2.5 text-[0.9375rem] font-medium text-ink">
                 {i}
               </li>
             ))}
@@ -69,17 +69,17 @@ export default async function AboutPage() {
         <AboutRow index="05" label="Education & certifications">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <p className="label-mono mb-4 text-ink/50">Education</p>
+              <p className="label-mono mb-4 text-ink/70">Education</p>
               {about.education.map((e) => (
                 <div key={e.title}>
                   <p className="label-mono text-plum">{e.period}</p>
                   <p className="mt-2 font-serif text-2xl text-ink">{e.title}</p>
-                  <p className="mt-1 text-[0.9375rem] text-ink/65">{e.org}</p>
+                  <p className="mt-1 text-[0.9375rem] text-ink/70">{e.org}</p>
                 </div>
               ))}
             </div>
             <div>
-              <p className="label-mono mb-4 text-ink/50">Certifications</p>
+              <p className="label-mono mb-4 text-ink/70">Certifications</p>
               <ul className="space-y-3">
                 {about.certifications.map((c) => (
                   <li
@@ -90,7 +90,7 @@ export default async function AboutPage() {
                     )}
                   >
                     <p className="font-medium text-ink">{c.title}</p>
-                    <p className="label-mono mt-1 text-mauve">{c.note}</p>
+                    <p className="label-mono mt-1 text-plum">{c.note}</p>
                   </li>
                 ))}
               </ul>

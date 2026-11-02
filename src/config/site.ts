@@ -20,17 +20,16 @@ export const siteConfig = {
     long: "Open to remote opportunities and freelance collaborations.",
   },
 
-  // TODO: replace with your real contact address before publishing.
-  email: "hello@example.com",
+  email: "raniaabdelnasser93@gmail.com",
+
+  /** Shown on the Contact page and in the contact section. `href` is the international tel: link. */
+  phone: { display: "+20 115 301 0263", href: "tel:+201153010263" },
 
   /** Résumé PDF served from /public. Replace the file (same name) to update it. */
   resumeUrl: "/resume.pdf",
 
-  /**
-   * TODO: drop a portrait at /public/images/portrait.jpg (4:5, at least 1200×1500)
-   * and set this to "/images/portrait.jpg". While `null`, an editorial placeholder renders.
-   */
-  portrait: null as string | null,
+  /** Hero portrait (4:5). Set to `null` to show the editorial placeholder instead. */
+  portrait: "/images/portrait.jpg" as string | null,
 
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/rania-abdelnasser" },

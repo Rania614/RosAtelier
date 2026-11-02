@@ -141,10 +141,10 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       aria-current={isActive(item.href) ? "page" : undefined}
-                      className="flex items-baseline justify-between py-5 font-serif text-[2.5rem] leading-none tracking-[-0.02em] text-ink aria-[current=page]:italic aria-[current=page]:text-plum"
+                      className="flex items-baseline justify-between py-5 font-serif text-[2.5rem] leading-none tracking-[-0.02em] text-ink aria-[current=page]:text-plum"
                     >
                       {item.label}
-                      <span className="label-mono text-mauve">{pad(i + 1)}</span>
+                      <span className="label-mono text-plum">{pad(i + 1)}</span>
                     </Link>
                   </motion.li>
                 ))}

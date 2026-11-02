@@ -20,7 +20,7 @@ export default async function ExperiencePage() {
         eyebrow="Experience"
         title={
           <>
-            A journey of <em className="italic text-plum">building</em> &amp; learning
+            A journey of <span className="text-plum">building</span> &amp; learning
           </>
         }
         intro="Client engagements, education and training — the path that shaped how I build."

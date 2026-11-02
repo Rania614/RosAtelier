@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 const fieldBase =
-  "w-full rounded-[14px] border bg-surface px-4 text-[0.9375rem] text-ink placeholder:text-ink/35 transition-colors focus:border-plum focus:outline-none focus:ring-4 focus:ring-blush";
+  "w-full rounded-[14px] border bg-surface px-4 text-[0.9375rem] text-ink placeholder:text-ink/50 transition-colors focus:border-plum focus:outline-none focus:ring-4 focus:ring-blush";
 
 export function ContactForm() {
   const [result, setResult] = useState<ContactResult | null>(null);
@@ -47,7 +47,7 @@ export function ContactForm() {
       </div>
 
       <fieldset>
-        <legend className="label-mono mb-3 text-ink/60">Inquiry type</legend>
+        <legend className="label-mono mb-3 text-ink/70">Inquiry type</legend>
         <div className="flex flex-wrap gap-2">
           {inquiryTypes.map((t) => (
             <label key={t} className="cursor-pointer">
@@ -70,7 +70,7 @@ export function ContactForm() {
       </Field>
 
       <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-ink/55">All fields are required.</p>
+        <p className="text-sm text-ink/70">All fields are required.</p>
         <button
           type="submit"
           disabled={isSubmitting}
@@ -113,7 +113,7 @@ export function ContactForm() {
 function Field({ label, error, id, children }: { label: string; error?: string; id: string; children: React.ReactNode }) {
   return (
     <div>
-      <label htmlFor={id} className="label-mono mb-2.5 block text-ink/60">
+      <label htmlFor={id} className="label-mono mb-2.5 block text-ink/70">
         {label}
       </label>
       {children}

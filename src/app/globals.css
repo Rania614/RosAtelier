@@ -62,9 +62,12 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
+  /* Editorial headings: Playfair Display Regular, never synthetic bold or italic. */
   h1,
   h2,
   h3 {
+    font-weight: 400;
+    font-synthesis: none;
     text-wrap: balance;
   }
   p {
@@ -102,8 +105,8 @@
 
 @utility label-mono {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.4;
 }

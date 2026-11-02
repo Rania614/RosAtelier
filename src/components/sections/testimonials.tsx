@@ -12,7 +12,7 @@ export function TestimonialCard({ t }: { t: Testimonial }) {
       <blockquote className="mt-4 flex-1 font-serif text-[1.375rem] leading-snug text-ink">{t.quote}</blockquote>
       <figcaption className="mt-8 border-t border-ink/10 pt-5">
         <p className="font-semibold text-ink">{t.author}</p>
-        <p className="label-mono mt-1 text-mauve">{t.role}</p>
+        <p className="label-mono mt-1 text-plum">{t.role}</p>
       </figcaption>
     </figure>
   );
@@ -31,7 +31,7 @@ export async function Testimonials() {
           eyebrow="Testimonials"
           title={
             <>
-              Kind Words &amp; <em className="italic text-plum">Collaborations</em>
+              Kind Words &amp; <span className="text-plum">Collaborations</span>
             </>
           }
         />

@@ -33,7 +33,7 @@ export function PortraitComposition() {
           {siteConfig.portrait ? (
             <Image
               src={siteConfig.portrait}
-              alt={`Portrait of ${siteConfig.name}`}
+              alt={`Illustrated portrait of ${siteConfig.name}`}
               fill
               priority
               sizes="(min-width: 1024px) 34vw, (min-width: 768px) 60vw, 90vw"
@@ -53,10 +53,10 @@ export function PortraitComposition() {
         </span>
       </Reveal>
 
-      <Reveal delay={0.6} y={10} className="absolute -right-1 top-[48%] hidden min-[400px]:block lg:-right-4">
+      <Reveal delay={0.6} y={10} className="absolute -right-1 top-[30%] hidden min-[400px]:block lg:-right-4">
         <div className="rounded-[14px] border border-ink/10 bg-surface/95 px-4 py-3.5 font-mono text-[0.6875rem] leading-[1.7] text-ink/80 shadow-[0_18px_40px_-22px_rgba(52,43,51,.55)]">
           <p>
-            <span className="text-mauve">const</span> atelier = {"{"}
+            <span className="text-plum">const</span> atelier = {"{"}
           </p>
           <p className="pl-3">
             mind: <span className="text-plum">&quot;imaginative&quot;</span>,
@@ -98,14 +98,14 @@ function PortraitPlaceholder() {
       </svg>
       <span
         aria-hidden
-        className="absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2 font-serif text-[7rem] italic leading-none text-plum/80"
+        className="absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2 font-serif text-[7rem] leading-none text-plum/80"
       >
         R
       </span>
-      <figcaption className="label-mono absolute bottom-5 right-5 text-right text-ink/55">
+      <figcaption className="label-mono absolute bottom-5 right-5 text-right text-ink/70">
         Portrait
         <br />
-        <span className="text-ink/40">placeholder</span>
+        <span className="text-ink/70">placeholder</span>
       </figcaption>
     </div>
   );
@@ -123,7 +123,7 @@ function RoundBadge() {
           <textPath href="#badge-circle">{text}</textPath>
         </text>
       </svg>
-      <svg aria-hidden viewBox="0 0 24 24" className="size-6 text-mauve" fill="currentColor">
+      <svg aria-hidden viewBox="0 0 24 24" className="size-6 text-plum" fill="currentColor">
         <path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0Z" />
       </svg>
       <span className="sr-only">{siteConfig.brand}</span>

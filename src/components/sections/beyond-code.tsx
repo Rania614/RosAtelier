@@ -22,7 +22,7 @@ export async function BeyondCode() {
           eyebrow="Beyond the code"
           title={
             <>
-              A Little More <em className="italic text-plum">About Me</em>
+              A Little More <span className="text-plum">About Me</span>
             </>
           }
           intro="The curiosity that happens between projects — and quietly shapes the work."
@@ -47,9 +47,9 @@ export async function BeyondCode() {
                     aria-hidden
                     className="absolute -top-3 left-1/2 h-6 w-20 -translate-x-1/2 rotate-[-3deg] rounded-[3px] bg-rose/60"
                   />
-                  <BeyondMotif motif={item.motif} className={dark ? "text-rose" : "text-mauve"} />
-                  <p className={cn("mt-8 font-serif text-[0.95rem] italic", dark ? "text-rose" : "text-mauve")}>
-                    — {item.note}
+                  <BeyondMotif motif={item.motif} className={dark ? "text-rose" : "text-plum"} />
+                  <p className={cn("label-mono mt-8", dark ? "text-background/80" : "text-plum")}>
+                    {item.note}
                   </p>
                   <h3 className="mt-2 font-serif text-[1.5rem] leading-tight tracking-[-0.01em]">{item.title}</h3>
                   <p className={cn("mt-3 text-[0.9375rem] leading-relaxed", dark ? "text-background/80" : "text-ink/70")}>

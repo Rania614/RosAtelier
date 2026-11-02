@@ -22,7 +22,7 @@ export function SectionHeader({ index, eyebrow, title, intro, className, tone = 
       <div
         className={cn(
           "col-span-full flex items-center gap-4 border-t pt-4",
-          light ? "border-background/20 text-background/70" : "hairline text-mauve",
+          light ? "border-background/20 text-background/70" : "hairline text-plum",
         )}
       >
         <span className="label-mono">{index}</span>

@@ -9,9 +9,9 @@ export default function NotFound() {
     <main id="main">
     <section className="flex min-h-[80vh] items-center pt-24">
       <div className="container-atelier">
-        <p className="label-mono text-mauve">404 · Page not found</p>
-        <h1 className="mt-5 max-w-3xl font-serif text-[3rem] leading-[1] tracking-[-0.03em] text-ink md:text-[5rem]">
-          This page took a <em className="italic text-plum">creative detour.</em>
+        <p className="label-mono text-plum">404 · Page not found</p>
+        <h1 className="mt-5 max-w-3xl font-serif text-[3rem] leading-[1.04] tracking-[-0.02em] text-ink md:text-[5rem]">
+          This page took a <span className="text-plum">creative detour.</span>
         </h1>
         <div className="mt-10 flex flex-wrap gap-3">
           <ButtonLink href="/">Back home</ButtonLink>

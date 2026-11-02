@@ -7,7 +7,7 @@ export function AboutRow({ index, label, title, children }: { index: string; lab
     <Reveal>
       <section className="grid-atelier gap-y-6 border-t border-ink/12 py-14 md:py-20">
         <div className="col-span-full lg:col-span-4">
-          <p className="flex items-center gap-3 text-mauve">
+          <p className="flex items-center gap-3 text-plum">
             <span className="label-mono text-plum">{index}</span>
             <span aria-hidden className="h-px w-6 bg-mauve/50" />
             <span className="label-mono">{label}</span>

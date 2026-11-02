@@ -14,7 +14,7 @@ export async function Journey() {
           eyebrow="Experience & journey"
           title={
             <>
-              A Journey of <em className="italic text-plum">Building</em> &amp; Learning
+              A Journey of <span className="text-plum">Building</span> &amp; Learning
             </>
           }
           intro="Client engagements, education and training — the path that shaped how I build."

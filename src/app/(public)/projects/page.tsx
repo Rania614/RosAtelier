@@ -20,7 +20,7 @@ export default async function ProjectsPage() {
         eyebrow="Work"
         title={
           <>
-            Selected <em className="italic text-plum">projects</em>
+            Selected <span className="text-plum">projects</span>
           </>
         }
         intro="Platforms, dashboards and mobile products — each one a set of problems worth solving carefully."

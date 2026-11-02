@@ -11,11 +11,13 @@ export type CoverMotif = "journal" | "dashboard" | "clinic" | "mobile" | "proper
 export type ProjectTone = "ivory" | "blush" | "plum";
 
 export interface ProjectImage {
-  src: string; // e.g. Cloudinary URL later
+  src: string; // e.g. /images/projects/<slug>/home.jpg, or a Cloudinary URL later
   alt: string;
   width: number;
   height: number;
   caption?: string;
+  /** Public page the screenshot was captured from (shown in the browser frame). */
+  source?: string;
 }
 
 export interface ProjectLinks {
@@ -46,7 +48,10 @@ export interface Project {
   technologies: string[];
   featured: boolean;
   order: number;
+  /** `image` = real screenshot; without it the illustrated motif is shown. */
   cover: { motif: CoverMotif; tone: ProjectTone; image?: ProjectImage };
+  /** Real screenshots of public pages, shown on the project page. Never authenticated/private screens. */
+  screenshots?: ProjectImage[];
   links: ProjectLinks;
   caseStudy?: {
     overview: string;

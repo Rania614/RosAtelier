@@ -11,7 +11,7 @@ export async function TechStack() {
         <div className="grid-atelier gap-y-12">
           <div className="col-span-full lg:col-span-4">
             <div className="lg:sticky lg:top-28">
-              <div className="flex items-center gap-4 border-t border-ink/12 pt-4 text-mauve">
+              <div className="flex items-center gap-4 border-t border-ink/12 pt-4 text-plum">
                 <span className="label-mono">05</span>
                 <span aria-hidden className="h-px w-8 bg-mauve/50" />
                 <span className="label-mono">Tech stack</span>
@@ -20,7 +20,7 @@ export async function TechStack() {
                 id="stack-title"
                 className="mt-6 font-serif text-[2.5rem] leading-[1.02] tracking-[-0.02em] text-ink md:text-[3.5rem]"
               >
-                Tools of the <em className="italic text-plum">craft</em>
+                Tools of the <span className="text-plum">craft</span>
               </h2>
               <p className="mt-5 max-w-sm text-base leading-relaxed text-ink/70">
                 The technologies I reach for day to day — chosen for reliability, clarity and how well they serve the
@@ -37,8 +37,8 @@ export async function TechStack() {
                 className="grid grid-cols-1 gap-4 border-t border-ink/12 py-6 last:border-b sm:grid-cols-[11rem_1fr] sm:items-center md:py-7"
               >
                 <dt className="flex items-baseline gap-3">
-                  <span className="label-mono text-mauve">{pad(i + 1)}</span>
-                  <span className="font-serif text-[1.375rem] italic text-ink">{group.category}</span>
+                  <span className="label-mono text-plum">{pad(i + 1)}</span>
+                  <span className="font-serif text-[1.375rem] text-ink">{group.category}</span>
                 </dt>
                 <dd>
                   <ul className="flex flex-wrap gap-x-2 gap-y-2">

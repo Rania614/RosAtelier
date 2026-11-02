@@ -64,7 +64,7 @@ export function ProjectsExplorer({ projects, categories }: Props) {
                 )}
               >
                 {cat}
-                <span className={cn("font-mono text-[0.6875rem]", isActive ? "text-background/70" : "text-mauve")}>
+                <span className={cn("font-mono text-[0.6875rem]", isActive ? "text-background/70" : "text-plum")}>
                   {counts[cat] ?? 0}
                 </span>
               </button>
@@ -73,19 +73,19 @@ export function ProjectsExplorer({ projects, categories }: Props) {
         </div>
         <label className="relative flex h-11 w-full items-center lg:w-72">
           <span className="sr-only">Search projects</span>
-          <Search aria-hidden className="pointer-events-none absolute left-4 size-4 text-mauve" />
+          <Search aria-hidden className="pointer-events-none absolute left-4 size-4 text-plum" />
           <input
             type="search"
             value={query}
             onChange={(e) => setParam("q", e.target.value || null)}
             placeholder="Search by name or technology"
-            className="h-full w-full rounded-full border border-ink/15 bg-surface pl-11 pr-10 text-sm text-ink placeholder:text-ink/40 focus:border-plum focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+            className="h-full w-full rounded-full border border-ink/15 bg-surface pl-11 pr-10 text-sm text-ink placeholder:text-ink/70 focus:border-plum focus:outline-none [&::-webkit-search-cancel-button]:hidden"
           />
           {query ? (
             <button
               type="button"
               onClick={() => setParam("q", null)}
-              className="absolute right-2 flex size-7 items-center justify-center rounded-full text-ink/60 hover:bg-blush"
+              className="absolute right-2 flex size-7 items-center justify-center rounded-full text-ink/70 hover:bg-blush"
             >
               <X aria-hidden className="size-4" />
               <span className="sr-only">Clear search</span>
@@ -94,7 +94,7 @@ export function ProjectsExplorer({ projects, categories }: Props) {
         </label>
       </div>
 
-      <p aria-live="polite" className="label-mono mt-6 text-ink/50">
+      <p aria-live="polite" className="label-mono mt-6 text-ink/70">
         Showing {filtered.length} of {projects.length} projects
       </p>
 
@@ -102,8 +102,8 @@ export function ProjectsExplorer({ projects, categories }: Props) {
         <ProjectGrid projects={filtered} />
       ) : (
         <div className="mt-12 rounded-[22px] border border-dashed border-ink/20 px-6 py-16 text-center">
-          <p className="font-serif text-2xl italic text-ink">Nothing here yet.</p>
-          <p className="mt-2 text-sm text-ink/60">Try another category or search term.</p>
+          <p className="font-serif text-2xl text-ink">Nothing here yet.</p>
+          <p className="mt-2 text-sm text-ink/70">Try another category or search term.</p>
           <button
             type="button"
             onClick={() => router.replace(pathname, { scroll: false })}
