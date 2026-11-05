@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,6 +8,7 @@ import { getAdjacentProjects, getProjectBySlug, getProjectSlugs } from "@/lib/da
 import type { Project } from "@/types/project";
 import { HighlightChips } from "@/components/projects/highlight-chips";
 import { ProjectStory } from "@/components/projects/project-story";
+import { ProjectSection } from "@/components/projects/project-section";
 import { ProjectFeatures } from "@/components/projects/project-features";
 import { siteConfig } from "@/config/site";
 import { ProjectCover } from "@/components/projects/project-cover";
@@ -39,6 +41,17 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   const { next, previous } = await getAdjacentProjects(project.slug);
   const blocks = project.caseStudy?.blocks ?? [];
 
+  // Sections are numbered in the order they appear, so the page reads 01, 02, 03… with no gaps.
+  const sections: { key: string; render: (index: number) => ReactNode }[] = [];
+  if (project.story) sections.push({ key: "story", render: (n) => <ProjectStory project={project} index={n} /> });
+  if (project.features?.length) sections.push({ key: "features", render: (n) => <ProjectFeatures project={project} index={n} /> });
+  if (project.screenshots?.some((img) => img.src !== project.cover.image?.src))
+    sections.push({ key: "screens", render: (n) => <Screens project={project} index={n} /> });
+  blocks.forEach((block) =>
+    sections.push({ key: block.id, render: (n) => <CaseStudyBlocks blocks={[block]} startIndex={n} /> }),
+  );
+  sections.push({ key: "stack", render: (n) => <Stack project={project} index={n} /> });
+
   const meta = [
     { label: "Role", value: project.role },
     { label: "Context", value: project.context },
@@ -49,7 +62,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   return (
     <article>
       {/* Masthead */}
-      <header className="relative overflow-hidden pb-12 pt-28 md:pb-16 md:pt-40">
+      <header className="relative overflow-hidden pb-12 pt-28 md:pb-14 md:pt-36">
         <div aria-hidden className="pointer-events-none absolute -right-[15%] -top-[25%] h-[110%] w-[55%] rounded-full bg-blush/60 blur-[120px]" />
         <div className="container-atelier relative">
           <Link href="/projects" className="label-mono group inline-flex items-center gap-2 text-ink/70 hover:text-plum">
@@ -61,7 +74,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               <p className="label-mono text-plum">
                 {String(project.order).padStart(2, "0")} · {project.category}
               </p>
-              <h1 className="mt-4 font-serif text-[3rem] leading-[1.04] tracking-[-0.02em] text-ink md:text-[5rem] lg:text-[6rem]">
+              <h1 className="mt-4 max-w-4xl font-serif text-[2.75rem] leading-[1.05] tracking-[-0.02em] text-ink md:text-[4rem] lg:text-[4.75rem]">
                 {project.name}
               </h1>
               <p className="mt-6 max-w-2xl text-[1.125rem] leading-relaxed text-ink/75 md:text-[1.3125rem]">
@@ -108,50 +121,10 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         </Reveal>
       </div>
 
-      {/* Overview */}
-      <section aria-labelledby="overview-title" className="py-20 md:py-28">
-        <div className="container-atelier grid-atelier gap-y-6">
-          <div className="col-span-full lg:col-span-4">
-            <h2 id="overview-title" className="label-mono flex items-center gap-3 border-t border-ink/12 pt-4 text-plum">
-              Overview
-            </h2>
-          </div>
-          <Reveal className="col-span-full lg:col-span-8">
-            <p className="font-serif text-[1.625rem] leading-[1.3] tracking-[-0.01em] text-ink md:text-[2.125rem]">
-              {project.caseStudy?.overview ?? project.description}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <div className="container-atelier pb-20 md:pb-28">
-        <div className="mb-20 md:mb-28">
-          <ProjectStory project={project} />
-        </div>
-        <ProjectFeatures project={project} />
-        {project.screenshots?.length ? <Screens project={project} /> : null}
-        {blocks.length ? <CaseStudyBlocks blocks={blocks} /> : null}
-
-        {/* Technology stack */}
-        <Reveal className="mt-20 md:mt-28">
-          <section aria-labelledby="stack-heading" className="grid-atelier gap-y-6">
-            <div className="col-span-full lg:col-span-4">
-              <p className="label-mono border-t border-ink/12 pt-4 text-plum">Technology stack</p>
-            </div>
-            <div className="col-span-full lg:col-span-8">
-              <h2 id="stack-heading" className="sr-only">
-                Technology stack
-              </h2>
-              <ul className="flex flex-wrap gap-2">
-                {project.technologies.map((t) => (
-                  <li key={t} className="rounded-full border border-ink/12 bg-surface px-4 py-2 font-mono text-[0.8125rem] text-ink">
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </Reveal>
+      <div className="container-atelier space-y-24 pb-24 pt-20 md:space-y-32 md:pb-32 md:pt-28">
+        {sections.map(({ key, render }, i) => (
+          <div key={key}>{render(i + 1)}</div>
+        ))}
       </div>
 
       {/* Next / previous */}
@@ -204,27 +177,34 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
   );
 }
 
-/** Real screenshots of the live public pages, each labelled with where it was captured. */
-function Screens({ project }: { project: Project }) {
+function Stack({ project, index }: { project: Project; index: number }) {
+  return (
+    <ProjectSection id="stack" index={index} eyebrow="Technology" title="Built with">
+      <ul className="flex flex-wrap gap-2">
+        {project.technologies.map((t) => (
+          <li key={t} className="rounded-full border border-ink/12 bg-surface px-4 py-2 font-mono text-[0.8125rem] text-ink">
+            {t}
+          </li>
+        ))}
+      </ul>
+    </ProjectSection>
+  );
+}
+
+const screensCopy = {
+  live: { eyebrow: "Live screens", title: "From the live site", note: "Captured from the public site. Signed-in dashboards and client data are not shown." },
+  design: { eyebrow: "Design screens", title: "From the Figma design", note: "From the Figma design and prototype. All names and data are fictional demo content." },
+  app: { eyebrow: "App screens", title: "Inside the app", note: "Screens from the app, shown with demo data. No client data is shown." },
+} as const;
+
+/** Real screenshots, each labelled with where it came from. */
+function Screens({ project, index }: { project: Project; index: number }) {
   // The cover screenshot is already shown above, so only list the others here.
   const shots = (project.screenshots ?? []).filter((img) => img.src !== project.cover.image?.src);
-  if (!shots.length) return null;
+  const copy = screensCopy[project.screensSource ?? "live"];
   return (
-    <Reveal className="mb-20 md:mb-28">
-      <section aria-labelledby="screens-title" className="grid-atelier gap-y-6">
-        <div className="col-span-full lg:col-span-4">
-          <h2 id="screens-title" className="label-mono border-t border-ink/12 pt-4 text-plum">
-            {project.screensSource === "design" ? "Design screens" : project.screensSource === "app" ? "App screens" : "Live screens"}
-          </h2>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/70">
-            {project.screensSource === "design"
-              ? "From the Figma design and prototype. All names and data are fictional demo content."
-              : project.screensSource === "app"
-                ? "Screens from the app, shown with demo data. No client data is shown."
-                : "Captured from the public, live site. Signed-in dashboards and client data are not shown."}
-          </p>
-        </div>
-        <div className="col-span-full grid items-start gap-8 lg:col-span-8 md:grid-cols-2">
+    <ProjectSection id="screens" index={index} eyebrow={copy.eyebrow} title={copy.title} note={copy.note}>
+      <div className="grid items-start gap-8 md:grid-cols-2">
           {shots.map((img, i) => (
             <figure key={img.src} className={shots.length === 1 || (shots.length % 2 === 1 && i === 0) ? "md:col-span-2" : undefined}>
               {img.mockup ? (
@@ -237,7 +217,7 @@ function Screens({ project }: { project: Project }) {
                   className="mx-auto h-auto w-full max-w-[640px] rounded-[18px]"
                 />
               ) : (
-                <div className="rounded-[18px] bg-blush/70 p-4 md:p-6">
+                <div className="rounded-[18px] bg-blush/70 p-2.5 md:p-3.5">
                   <BrowserFrame image={img} sizes="(min-width: 1024px) 760px, 92vw" />
                 </div>
               )}
@@ -256,8 +236,7 @@ function Screens({ project }: { project: Project }) {
               </figcaption>
             </figure>
           ))}
-        </div>
-      </section>
-    </Reveal>
+      </div>
+    </ProjectSection>
   );
 }

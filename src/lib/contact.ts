@@ -18,23 +18,23 @@ export type ContactResult =
   | { status: "not-configured" };
 
 /**
- * Submission abstraction.
- * ────────────────────────────────────────────────────────────────
- * Set NEXT_PUBLIC_CONTACT_ENDPOINT to an API route or form service that accepts
- * JSON (POST). Until then the form reports honestly that it is not connected —
- * it never pretends a message was sent.
+ * Sends the form to /api/contact, which emails it to Rania (see src/app/api/contact/route.ts).
+ * If the server isn't configured yet, the form says so honestly — it never pretends a message was sent.
  */
-export async function submitContact(data: ContactInput): Promise<ContactResult> {
-  const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
-  if (!endpoint) return { status: "not-configured" };
+export async function submitContact(data: ContactInput & { company?: string }): Promise<ContactResult> {
   try {
-    const res = await fetch(endpoint, {
+    const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(data),
     });
-    if (!res.ok) return { status: "error", message: `The server responded with ${res.status}.` };
-    return { status: "sent" };
+    const json = (await res.json().catch(() => null)) as ContactResult | null;
+    if (json?.status === "not-configured") return json;
+    if (res.ok && json?.status === "sent") return { status: "sent" };
+    return {
+      status: "error",
+      message: json?.status === "error" ? json.message : `The server responded with ${res.status}.`,
+    };
   } catch {
     return { status: "error", message: "The message could not be delivered. Please check your connection." };
   }

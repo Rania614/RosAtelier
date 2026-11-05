@@ -35,7 +35,8 @@ export function ContactForm() {
 
   const onSubmit = async (data: ContactInput) => {
     setResult(null);
-    const r = await submitContact(data);
+    const company = (document.getElementById("company") as HTMLInputElement | null)?.value ?? "";
+    const r = await submitContact({ ...data, company });
     setResult(r);
     if (r.status === "sent") reset();
   };
@@ -49,6 +50,11 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-6">
+      {/* Honeypot for spam bots — hidden from people and assistive tech. */}
+      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </div>
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label="Name" error={errors.name?.message} id="name">
           <input id="name" autoComplete="name" className={cn(fieldBase, "h-12", errors.name ? "border-plum" : "border-ink/15")} aria-invalid={!!errors.name} aria-describedby={errors.name ? "name-error" : undefined} {...register("name")} />

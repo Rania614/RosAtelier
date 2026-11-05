@@ -250,42 +250,6 @@ export const projects: Project[] = [
         "Pinnacle Academic Publishing needed a single platform to run its journals: receiving manuscripts, coordinating peer review, publishing accepted work and keeping the system healthy in production. I was responsible for the platform end to end, frontend and backend.",
       blocks: [
         {
-          type: "text",
-          id: "context",
-          eyebrow: "Context",
-          title: "One platform for the whole publishing lifecycle",
-          body: [
-            "Academic publishing involves several people acting on the same manuscript at different stages — authors submit, editors coordinate, reviewers assess and administrators oversee the journal.",
-            "The platform had to give each of them a clear, focused workspace while keeping the manuscript's journey consistent from first submission to published article.",
-          ],
-        },
-        {
-          type: "pairs",
-          id: "challenges",
-          eyebrow: "Challenges & solutions",
-          title: "Where the engineering lived",
-          pairs: [
-            {
-              challenge: "Four roles act on the same manuscript, each needing different visibility and actions.",
-              solution: "Role-based access that defines what every role can see and do at each stage of the workflow.",
-            },
-            {
-              challenge: "A manuscript passes through many steps — submission, review, revision and decision.",
-              solution:
-                "Structured manuscript workflows that keep each submission's status clear to everyone involved.",
-            },
-            {
-              challenge: "Published research needs persistent, citable identifiers.",
-              solution: "DOI integration as part of the publishing process.",
-            },
-            {
-              challenge: "A live platform has to stay dependable after launch.",
-              solution:
-                "Continued production maintenance: diagnosing issues, shipping fixes and improving the experience.",
-            },
-          ],
-        },
-        {
           type: "architecture",
           id: "architecture",
           eyebrow: "System architecture",

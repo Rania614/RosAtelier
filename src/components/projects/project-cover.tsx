@@ -66,16 +66,16 @@ export function ProjectCover({
             variant === "card"
               ? // The window rises from the bottom edge, leaving the top clear for the category badge.
                 "absolute inset-x-[7%] top-[17%]"
-              : "flex justify-center px-5 py-10 md:px-12 md:py-16",
+              : "flex justify-center px-4 py-8 md:px-10 md:py-12",
           )}
         >
           <BrowserFrame
             image={image}
-            sizes={variant === "hero" ? "(min-width: 1024px) 880px, 92vw" : sizes}
+            sizes={variant === "hero" ? "(min-width: 1024px) 1000px, 92vw" : sizes}
             priority={priority}
             className={cn(
               "w-full transition-transform duration-500 ease-atelier",
-              variant === "card" ? "group-hover:-translate-y-1.5" : "max-w-[880px]",
+              variant === "card" ? "group-hover:-translate-y-1.5" : "max-w-[1000px]",
             )}
           />
         </div>

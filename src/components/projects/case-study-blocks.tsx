@@ -7,7 +7,7 @@ import { pad } from "@/lib/utils";
  * Renders a list of flexible case-study blocks. New block types are added to the
  * `CaseStudyBlock` union and handled here — pages never change.
  */
-export function CaseStudyBlocks({ blocks }: { blocks: CaseStudyBlock[] }) {
+export function CaseStudyBlocks({ blocks, startIndex = 1 }: { blocks: CaseStudyBlock[]; startIndex?: number }) {
   return (
     <div className="space-y-20 md:space-y-28">
       {blocks.map((block, i) => (
@@ -15,7 +15,7 @@ export function CaseStudyBlocks({ blocks }: { blocks: CaseStudyBlock[] }) {
           <section aria-labelledby={`block-${block.id}`} className="grid-atelier gap-y-6">
             <div className="col-span-full lg:col-span-4">
               <div className="flex items-center gap-3 border-t border-ink/12 pt-4 text-plum lg:sticky lg:top-28">
-                <span className="label-mono text-plum">{pad(i + 1)}</span>
+                <span className="label-mono text-plum">{pad(startIndex + i)}</span>
                 <span aria-hidden className="h-px w-6 bg-mauve/50" />
                 <span className="label-mono">{block.eyebrow}</span>
               </div>
@@ -23,7 +23,7 @@ export function CaseStudyBlocks({ blocks }: { blocks: CaseStudyBlock[] }) {
             <div className="col-span-full lg:col-span-8">
               <h2
                 id={`block-${block.id}`}
-                className="font-serif text-[2rem] leading-[1.08] tracking-[-0.02em] text-ink md:text-[2.75rem]"
+                className="font-serif text-[1.875rem] leading-[1.12] tracking-[-0.015em] text-ink md:text-[2.375rem]"
               >
                 {block.title}
               </h2>
