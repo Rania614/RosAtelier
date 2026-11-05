@@ -74,7 +74,7 @@ export interface Project {
    */
   features?: ProjectFeature[];
   /** Where the screenshots come from: the live public site (default), design files (e.g. Figma) or the app itself with demo data. */
-  screensSource?: "live" | "design" | "app";
+  screensSource?: "live" | "design" | "app" | "mixed";
   /** Real screenshots of public pages, shown on the project page. Never authenticated/private screens. */
   screenshots?: ProjectImage[];
   links: ProjectLinks;

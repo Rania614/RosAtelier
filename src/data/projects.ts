@@ -16,11 +16,47 @@ const shots = {
   },
   pinnacleSignIn: {
     src: "/images/projects/pinnacle-academic-publishing/sign-in.jpg",
-    alt: "Pinnacle Academic Publishing submission portal sign-in page",
-    width: 800,
-    height: 500,
+    alt: "Pinnacle Academic Publishing submission portal: the sign-in page with email, password, forgot password and create-account links",
+    width: 1421,
+    height: 806,
     caption: "Submission portal — sign in",
     source: "https://pinnacle-academic.com/login",
+  },
+  pinnaclePortalOverview: {
+    src: "/images/projects/pinnacle-academic-publishing/portal-overview.jpg",
+    alt: "Pinnacle submission and peer-review portal overview: one portal for two oncology journals — author dashboard, 6-step submission, editorial workflow and admin console",
+    width: 1600,
+    height: 1000,
+    caption: "Portal overview",
+    mockup: true,
+  },
+  pinnacleAdminDashboard: {
+    src: "/images/projects/pinnacle-academic-publishing/admin-dashboard.jpg",
+    alt: "Pinnacle admin dashboard: submission totals, quick actions, recent submissions table with journal and status tags, and the admin menu — users, production, issues, published articles, email and audit logs, manuscript queue",
+    width: 1600,
+    height: 1378,
+    caption: "Admin dashboard · demo data",
+  },
+  pinnacleAuthorDashboard: {
+    src: "/images/projects/pinnacle-academic-publishing/author-dashboard.jpg",
+    alt: "Pinnacle author dashboard: the author's submission totals, quick actions and recent submissions with status tags",
+    width: 1600,
+    height: 1378,
+    caption: "Author dashboard · demo data",
+  },
+  pinnacleNewSubmission: {
+    src: "/images/projects/pinnacle-academic-publishing/new-submission.jpg",
+    alt: "Pinnacle new submission wizard, step 1 of 6: target journal, article type, title, running title with a 60-character counter, abstract with a word counter, keywords and Save Draft",
+    width: 1600,
+    height: 1667,
+    caption: "Submission wizard — step 1 of 6 · demo data",
+  },
+  pinnacleManuscriptTracking: {
+    src: "/images/projects/pinnacle-academic-publishing/manuscript-tracking.jpg",
+    alt: "Pinnacle manuscript page: a seven-stage editorial workflow tracker, the abstract, manuscript actions and an activity log",
+    width: 1600,
+    height: 1778,
+    caption: "Manuscript tracking · demo data",
   },
   hixaHome: {
     src: "/images/projects/hixa/platform-full-page.jpg",
@@ -186,10 +222,22 @@ export const projects: Project[] = [
     context: "Freelance",
     role: "Full-Stack Developer (Freelance)",
     period: "Mar 2026 — Sep 2026",
-    technologies: ["React", "Vite", "Tailwind CSS", "Node.js", "Express.js", "Prisma", "PostgreSQL"],
+    technologies: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "Prisma",
+      "PostgreSQL",
+    ],
     featured: true,
     order: 3,
-    highlights: ["Built end to end", "20+ production bugs fixed", "4 user roles"],
+    highlights: [
+      "Built end to end",
+      "20+ production bugs fixed",
+      "4 user roles",
+    ],
     story: {
       challenge:
         "An academic publisher needed one platform to run its journals — from submission and peer review to publication — and to stay dependable once real authors and editors were using it.",
@@ -213,8 +261,13 @@ export const projects: Project[] = [
       },
       {
         title: "A six-step submission wizard",
-        body: "Authors submit through six guided steps instead of one long form, then follow their manuscript's status as it moves through review.",
-        skills: ["Multi-step forms", "React", "UX flow"],
+        body: "Article info, authors, files, reviewer suggestions, declarations, review & submit — six guided steps with a Save Draft option, live counters for the running title and abstract, and the journal's word and keyword limits built in.",
+        skills: ["Multi-step forms", "Validation", "React"],
+      },
+      {
+        title: "Authors always know where they stand",
+        body: "Every manuscript shows a seven-stage editorial tracker — submitted, screening, assigning reviewers, under review, decision, revision, accepted — plus an activity log, so authors don't have to email the office to ask.",
+        skills: ["Workflow design", "Status UX"],
       },
       {
         title: "Fair pricing applied automatically",
@@ -227,9 +280,9 @@ export const projects: Project[] = [
         skills: ["RBAC", "Node.js", "Prisma", "PostgreSQL"],
       },
       {
-        title: "Editors manage content without a developer",
-        body: "Admins manage articles with PDF upload and keep each journal's Editor-in-Chief profile up to date themselves.",
-        skills: ["Admin tooling", "File upload"],
+        title: "An admin console to run the journals",
+        body: "Admins handle users, production, issues, published articles, the manuscript queue, and email and audit logs — and manage articles with PDF upload — without needing a developer.",
+        skills: ["Admin tooling", "Audit logging", "File upload"],
       },
       {
         title: "Integrated with the services publishing needs",
@@ -243,7 +296,16 @@ export const projects: Project[] = [
       },
     ],
     cover: { motif: "journal", tone: "blush", image: shots.pinnacleHome },
-    screenshots: [shots.pinnacleHome, shots.pinnacleSignIn],
+    screensSource: "mixed",
+    screenshots: [
+      shots.pinnacleHome,
+      shots.pinnaclePortalOverview,
+      shots.pinnacleAuthorDashboard,
+      shots.pinnacleNewSubmission,
+      shots.pinnacleManuscriptTracking,
+      shots.pinnacleAdminDashboard,
+      shots.pinnacleSignIn,
+    ],
     links: { caseStudy: true, live: "https://pinnacle-academic.com/login" },
     caseStudy: {
       overview:
@@ -255,10 +317,20 @@ export const projects: Project[] = [
           eyebrow: "System architecture",
           title: "A simplified view of the stack",
           layers: [
-            { name: "Client", detail: "React interface with role-specific workspaces" },
-            { name: "API", detail: "Node.js & Express.js services and business logic" },
+            {
+              name: "Client",
+              detail: "React interface with role-specific workspaces",
+            },
+            {
+              name: "API",
+              detail: "Node.js & Express.js services and business logic",
+            },
             { name: "Data", detail: "Prisma ORM over PostgreSQL" },
-            { name: "Integrations", detail: "Crossref/DOI · payment gateway · SMTP email (Nodemailer)" },
+            {
+              name: "Integrations",
+              detail:
+                "Crossref/DOI · payment gateway · SMTP email (Nodemailer)",
+            },
           ],
           note: "Simplified overview for public presentation.",
         },
@@ -268,14 +340,21 @@ export const projects: Project[] = [
   {
     slug: "hr-management-system",
     name: "HR Management System",
-    tagline: "An enterprise HR platform designed in Figma — four roles, one Arabic-first interface.",
+    tagline:
+      "An enterprise HR platform designed in Figma — four roles, one Arabic-first interface.",
     description:
       "An enterprise Human Resource Management System that centralises employee records and streamlines everyday HR work in one web platform. I designed the interface and experience end to end: 11 core screens, user flows for four roles, a reusable component system and interactive prototypes.",
     category: "UI/UX Design",
     context: "Freelance · Enterprise SaaS",
     role: "UI/UX Designer (Freelance)",
     period: "31 Oct 2026 · 10 days",
-    technologies: ["Figma", "Auto Layout", "Components", "Variables", "Prototyping"],
+    technologies: [
+      "Figma",
+      "Auto Layout",
+      "Components",
+      "Variables",
+      "Prototyping",
+    ],
     highlights: ["11 core screens", "4 user roles", "Arabic RTL · bilingual"],
     story: {
       challenge:
@@ -320,7 +399,11 @@ export const projects: Project[] = [
         skills: ["Edge cases", "Prototyping", "Arabic RTL"],
       },
     ],
-    cover: { motif: "dashboard", tone: "blush", image: shots.hrmsLeaveManagement },
+    cover: {
+      motif: "dashboard",
+      tone: "blush",
+      image: shots.hrmsLeaveManagement,
+    },
     screensSource: "design",
     screenshots: [
       shots.hrmsLeaveManagement,
@@ -434,7 +517,8 @@ export const projects: Project[] = [
   {
     slug: "yozersief",
     name: "Yozersief",
-    tagline: "A custom-printing storefront with a guided ordering flow — 1st place at IEEE Aswan SB's Build & Brand.",
+    tagline:
+      "A custom-printing storefront with a guided ordering flow — 1st place at IEEE Aswan SB's Build & Brand.",
     description:
       "A website for Yozersief, a custom-printing brand, built by a team of three in a three-day competition: Build & Brand, organised by IEEE Aswan SB, where our team won first place in the User Persona competition. I built the customer-facing frontend — the guided ordering flow where customers choose a product and upload their own design — and designed social media posts for the brand.",
     category: "Frontend",
@@ -510,7 +594,8 @@ export const projects: Project[] = [
   {
     slug: "property-management-system",
     name: "Property Management System",
-    tagline: "A property, contracts and collection dashboard for a Saudi real estate office.",
+    tagline:
+      "A property, contracts and collection dashboard for a Saudi real estate office.",
     description:
       "A real estate and property management system. I designed and built the frontend and handled its integration with the backend, which was developed by another engineer.",
     category: "Frontend",
@@ -520,7 +605,11 @@ export const projects: Project[] = [
     technologies: ["React", "REST APIs"],
     featured: false,
     order: 6,
-    highlights: ["200+ contracts managed", "Saudi client", "Designed with the client"],
+    highlights: [
+      "200+ contracts managed",
+      "Saudi client",
+      "Designed with the client",
+    ],
     story: {
       challenge:
         "A real estate office in Saudi Arabia needed one place to manage properties, units, owners and contracts, and to follow entitlements, monthly collection and enforcement cases.",
@@ -591,7 +680,13 @@ export const projects: Project[] = [
     context: "Training project",
     role: "Frontend Developer Trainee",
     period: "Jun 2026 — Jul 2026",
-    technologies: ["Next.js", "TypeScript", "Redux Toolkit", "Tailwind CSS", "dnd-kit"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Redux Toolkit",
+      "Tailwind CSS",
+      "dnd-kit",
+    ],
     featured: false,
     order: 5,
     highlights: ["Drag-and-drop board", "Code-reviewed PRs"],
