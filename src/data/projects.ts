@@ -22,14 +22,6 @@ const shots = {
     caption: "Submission portal — sign in",
     source: "https://pinnacle-academic.com/login",
   },
-  pinnaclePortalOverview: {
-    src: "/images/projects/pinnacle-academic-publishing/portal-overview.jpg",
-    alt: "Pinnacle submission and peer-review portal overview: one portal for two oncology journals — author dashboard, 6-step submission, editorial workflow and admin console",
-    width: 1600,
-    height: 1000,
-    caption: "Portal overview",
-    mockup: true,
-  },
   pinnacleAdminDashboard: {
     src: "/images/projects/pinnacle-academic-publishing/admin-dashboard.jpg",
     alt: "Pinnacle admin dashboard: submission totals, quick actions, recent submissions table with journal and status tags, and the admin menu — users, production, issues, published articles, email and audit logs, manuscript queue",
@@ -299,7 +291,6 @@ export const projects: Project[] = [
     screensSource: "mixed",
     screenshots: [
       shots.pinnacleHome,
-      shots.pinnaclePortalOverview,
       shots.pinnacleAuthorDashboard,
       shots.pinnacleNewSubmission,
       shots.pinnacleManuscriptTracking,
