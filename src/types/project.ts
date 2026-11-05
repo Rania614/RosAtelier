@@ -39,6 +39,12 @@ export type CaseStudyBlock =
   | { type: "gallery"; id: string; eyebrow: string; title: string; images: ProjectImage[] }
   | { type: "placeholder"; id: string; eyebrow: string; title: string; note: string };
 
+export interface ProjectFeature {
+  title: string;
+  body: string;
+  skills: string[];
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -62,8 +68,13 @@ export interface Project {
     built: string[];
     results?: string[];
   };
-  /** Where the screenshots come from: the live public site (default) or design files (e.g. Figma). */
-  screensSource?: "live" | "design";
+  /**
+   * Problems solved and features worth noticing, each tagged with the skills it shows.
+   * Verified facts only — taken from the live site, the screens, the README or the client brief.
+   */
+  features?: ProjectFeature[];
+  /** Where the screenshots come from: the live public site (default), design files (e.g. Figma) or the app itself with demo data. */
+  screensSource?: "live" | "design" | "app";
   /** Real screenshots of public pages, shown on the project page. Never authenticated/private screens. */
   screenshots?: ProjectImage[];
   links: ProjectLinks;

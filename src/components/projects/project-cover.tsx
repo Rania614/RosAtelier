@@ -25,9 +25,27 @@ export function ProjectCover({
   const { image, motif, tone } = project.cover;
 
   // Ready-made mockups (e.g. phones on a backdrop) are shown as they are.
+  if (image?.mockup && variant === "hero") {
+    return (
+      <div className={cn("relative overflow-hidden", toneBg[tone], className)}>
+        <div className="flex justify-center px-5 py-10 md:px-12 md:py-14">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            sizes="(min-width: 1024px) 720px, 92vw"
+            priority={priority}
+            className="h-auto w-full max-w-[720px] rounded-[18px] shadow-[0_30px_60px_-30px_rgba(52,43,51,.55)]"
+          />
+        </div>
+      </div>
+    );
+  }
+
   if (image?.mockup) {
     return (
-      <div className={cn("relative overflow-hidden", toneBg[tone], variant === "hero" && "aspect-[4/3]", className)}>
+      <div className={cn("relative overflow-hidden", toneBg[tone], className)}>
         <Image
           src={image.src}
           alt={image.alt}

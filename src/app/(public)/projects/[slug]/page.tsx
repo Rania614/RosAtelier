@@ -7,6 +7,7 @@ import { getAdjacentProjects, getProjectBySlug, getProjectSlugs } from "@/lib/da
 import type { Project } from "@/types/project";
 import { HighlightChips } from "@/components/projects/highlight-chips";
 import { ProjectStory } from "@/components/projects/project-story";
+import { ProjectFeatures } from "@/components/projects/project-features";
 import { siteConfig } from "@/config/site";
 import { ProjectCover } from "@/components/projects/project-cover";
 import { CaseStudyBlocks } from "@/components/projects/case-study-blocks";
@@ -99,7 +100,9 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               {project.cover.image.caption} ·{" "}
               {project.screensSource === "design"
                 ? "designed in Figma — all names and data are fictional"
-                : "captured from the live site — signed-in dashboards are not shown"}
+                : project.screensSource === "app"
+                  ? "from the app, shown with demo data — no client data"
+                  : "captured from the live site — signed-in dashboards are not shown"}
             </p>
           ) : null}
         </Reveal>
@@ -125,6 +128,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <div className="mb-20 md:mb-28">
           <ProjectStory project={project} />
         </div>
+        <ProjectFeatures project={project} />
         {project.screenshots?.length ? <Screens project={project} /> : null}
         {blocks.length ? <CaseStudyBlocks blocks={blocks} /> : null}
 
@@ -210,15 +214,17 @@ function Screens({ project }: { project: Project }) {
       <section aria-labelledby="screens-title" className="grid-atelier gap-y-6">
         <div className="col-span-full lg:col-span-4">
           <h2 id="screens-title" className="label-mono border-t border-ink/12 pt-4 text-plum">
-            {project.screensSource === "design" ? "Design screens" : "Live screens"}
+            {project.screensSource === "design" ? "Design screens" : project.screensSource === "app" ? "App screens" : "Live screens"}
           </h2>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink/70">
             {project.screensSource === "design"
               ? "From the Figma design and prototype. All names and data are fictional demo content."
-              : "Captured from the public, live site. Signed-in dashboards and client data are not shown."}
+              : project.screensSource === "app"
+                ? "Screens from the app, shown with demo data. No client data is shown."
+                : "Captured from the public, live site. Signed-in dashboards and client data are not shown."}
           </p>
         </div>
-        <div className="col-span-full grid gap-8 lg:col-span-8 md:grid-cols-2">
+        <div className="col-span-full grid items-start gap-8 lg:col-span-8 md:grid-cols-2">
           {shots.map((img, i) => (
             <figure key={img.src} className={shots.length === 1 || (shots.length % 2 === 1 && i === 0) ? "md:col-span-2" : undefined}>
               {img.mockup ? (
@@ -227,15 +233,27 @@ function Screens({ project }: { project: Project }) {
                   alt={img.alt}
                   width={img.width}
                   height={img.height}
-                  sizes="(min-width: 1024px) 760px, 92vw"
-                  className="h-auto w-full rounded-[18px]"
+                  sizes="(min-width: 1024px) 640px, 92vw"
+                  className="mx-auto h-auto w-full max-w-[640px] rounded-[18px]"
                 />
               ) : (
                 <div className="rounded-[18px] bg-blush/70 p-4 md:p-6">
                   <BrowserFrame image={img} sizes="(min-width: 1024px) 760px, 92vw" />
                 </div>
               )}
-              {img.caption ? <figcaption className="label-mono mt-3 text-ink/70">{img.caption}</figcaption> : null}
+              <figcaption className="label-mono mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-ink/70">
+                {img.caption ? <span>{img.caption}</span> : null}
+                <a
+                  href={img.src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline inline-flex items-center gap-1 text-plum"
+                >
+                  Full size
+                  <ArrowUpRight aria-hidden className="size-3" />
+                  <span className="sr-only">: {img.alt} (opens in a new tab)</span>
+                </a>
+              </figcaption>
             </figure>
           ))}
         </div>
