@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
@@ -220,9 +221,20 @@ function Screens({ project }: { project: Project }) {
         <div className="col-span-full grid gap-8 lg:col-span-8 md:grid-cols-2">
           {shots.map((img, i) => (
             <figure key={img.src} className={shots.length === 1 || (shots.length % 2 === 1 && i === 0) ? "md:col-span-2" : undefined}>
-              <div className="rounded-[18px] bg-blush/70 p-4 md:p-6">
-                <BrowserFrame image={img} sizes="(min-width: 1024px) 760px, 92vw" />
-              </div>
+              {img.mockup ? (
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={img.width}
+                  height={img.height}
+                  sizes="(min-width: 1024px) 760px, 92vw"
+                  className="h-auto w-full rounded-[18px]"
+                />
+              ) : (
+                <div className="rounded-[18px] bg-blush/70 p-4 md:p-6">
+                  <BrowserFrame image={img} sizes="(min-width: 1024px) 760px, 92vw" />
+                </div>
+              )}
               {img.caption ? <figcaption className="label-mono mt-3 text-ink/70">{img.caption}</figcaption> : null}
             </figure>
           ))}

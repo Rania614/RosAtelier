@@ -28,7 +28,7 @@ export const siteConfig = {
   resumeUrl: "/resume.pdf",
 
   /** Hero portrait (4:5). Set to `null` to show the editorial placeholder instead. */
-  portrait: "/images/portrait-at-work.jpg" as string | null,
+  portrait: "/images/portrait-nile.jpg" as string | null,
 
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/rania-abdelnasser" },

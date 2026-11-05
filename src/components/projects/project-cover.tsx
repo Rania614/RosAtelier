@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { CoverMotif, Project, ProjectTone } from "@/types/project";
 import { cn } from "@/lib/utils";
 import { BrowserFrame } from "./browser-frame";
@@ -22,6 +23,22 @@ export function ProjectCover({
   variant?: "card" | "hero";
 }) {
   const { image, motif, tone } = project.cover;
+
+  // Ready-made mockups (e.g. phones on a backdrop) are shown as they are.
+  if (image?.mockup) {
+    return (
+      <div className={cn("relative overflow-hidden", toneBg[tone], variant === "hero" && "aspect-[4/3]", className)}>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={variant === "hero" ? "(min-width: 1024px) 1200px, 100vw" : sizes}
+          priority={priority}
+          className="object-cover transition-transform duration-700 ease-atelier group-hover:scale-[1.04]"
+        />
+      </div>
+    );
+  }
 
   if (image) {
     return (

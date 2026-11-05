@@ -33,11 +33,11 @@ export function PortraitComposition() {
           {siteConfig.portrait ? (
             <Image
               src={siteConfig.portrait}
-              alt={`${siteConfig.name} at work on her laptop, seen from behind`}
+              alt={`${siteConfig.name} on a boat at sunset`}
               fill
               priority
               sizes="(min-width: 1024px) 34vw, (min-width: 768px) 60vw, 90vw"
-              className="object-cover object-[70%_bottom]"
+              className="object-cover object-top"
             />
           ) : (
             <PortraitPlaceholder />
@@ -55,7 +55,7 @@ export function PortraitComposition() {
         </div>
       </Reveal>
 
-      <Reveal delay={0.6} y={10} className="absolute -left-2 top-[34%] z-10 hidden min-[400px]:block lg:-left-6">
+      <Reveal delay={0.6} y={10} className="absolute -left-2 top-[22%] z-10 hidden min-[400px]:block lg:-left-6">
         <div className="animate-float [animation-delay:-3s] [animation-duration:7s]">
           <div className="hover-lift cursor-default rounded-[14px] border border-ink/10 bg-surface/95 px-4 py-3.5 font-mono text-[0.6875rem] leading-[1.7] text-ink/80 shadow-[0_18px_40px_-22px_rgba(52,43,51,.55)]">
             <p>

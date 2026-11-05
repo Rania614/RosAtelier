@@ -14,11 +14,11 @@ const icons: Record<string, LucideIcon> = {
 export async function Philosophy() {
   const capabilities = await getCapabilities();
   return (
-    <section aria-labelledby="philosophy-title" className="relative bg-surface py-24 md:py-32 lg:py-36">
+    <section aria-labelledby="philosophy-title" className="relative py-24 md:py-32 lg:py-36">
       <div className="container-atelier">
         <SectionHeader
           id="philosophy-title"
-          index="05"
+          index="06"
           eyebrow="Engineering philosophy"
           title={
             <>

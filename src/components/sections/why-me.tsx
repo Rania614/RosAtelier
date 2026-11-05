@@ -9,7 +9,7 @@ export function WhyMe() {
       <div className="container-atelier">
         <SectionHeader
           id="why-title"
-          index="04"
+          index="05"
           eyebrow="Why work with me"
           title={
             <>

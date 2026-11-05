@@ -18,6 +18,10 @@ export interface ProjectImage {
   caption?: string;
   /** Public page the screenshot was captured from (shown in the browser frame). */
   source?: string;
+  /** A full-page capture: shown as one screen, and scrolls through the whole page on hover. */
+  fullPage?: boolean;
+  /** A ready-made presentation image (e.g. phone mockups): shown as-is, without a browser frame. */
+  mockup?: boolean;
 }
 
 export interface ProjectLinks {
